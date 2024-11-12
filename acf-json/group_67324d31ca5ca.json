@@ -1,0 +1,349 @@
+{
+    "key": "group_67324d31ca5ca",
+    "title": "Content Modules",
+    "fields": [
+        {
+            "key": "field_67324d32f1c89",
+            "label": "Content Modules",
+            "name": "content_modules",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_67324d554fc67": {
+                    "key": "layout_67324d554fc67",
+                    "name": "home_hero",
+                    "label": "Home Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6732523716f51",
+                            "label": "Home Hero",
+                            "name": "clone-home_hero",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_67324d663941a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6732968cd23bf": {
+                    "key": "layout_6732968cd23bf",
+                    "name": "logos",
+                    "label": "Logos",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67329692d23c2",
+                            "label": "Logos",
+                            "name": "clone-logos",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6732966442bfd"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67325914c48e1": {
+                    "key": "layout_67325914c48e1",
+                    "name": "overlapping_text_and_image",
+                    "label": "Overlapping Text and Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67325917c48e4",
+                            "label": "Overlapping Text and Image",
+                            "name": "clone-overlapping_text_and_image",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_673257c392dc2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_673286687ddba": {
+                    "key": "layout_673286687ddba",
+                    "name": "services",
+                    "label": "Services",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6732866f7ddbd",
+                            "label": "Services",
+                            "name": "clone-services",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_673285d48af36"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67327ffd86e43": {
+                    "key": "layout_67327ffd86e43",
+                    "name": "video_image_background_logo_copy_cta",
+                    "label": "Video\/Image Background Logo, Copy & CTA",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6732800a86e46",
+                            "label": "Video\/Image Background Logo, Copy & CTA",
+                            "name": "clone-video_image_background_logo_copy_cta",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_67327f00bef68"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_673299e97d588": {
+                    "key": "layout_673299e97d588",
+                    "name": "heading_left_copy_right",
+                    "label": "Heading Left, Copy Right",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67329a2ff99c7",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "When there is not value for Eyebrow Title, a background pattern will be shown.",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        },
+                        {
+                            "key": "field_673299f07d58b",
+                            "label": "Heading Left, Copy Right",
+                            "name": "clone-heading_left_copy_right",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_673299474e880"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67329ffaef104": {
+                    "key": "layout_67329ffaef104",
+                    "name": "testimonials",
+                    "label": "Testimonials",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6732a003ef107",
+                            "label": "Testimonials",
+                            "name": "clone-testimonials",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_67329e11105f1"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6732b31c8f31e": {
+                    "key": "layout_6732b31c8f31e",
+                    "name": "5050_contentmedia",
+                    "label": "50\/50 Content\/Media",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6732b3318f321",
+                            "label": "50\/50 Content\/Media",
+                            "name": "5050_contentmedia",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6732af9d46c01"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6732a8410c03b": {
+                    "key": "layout_6732a8410c03b",
+                    "name": "global_centered_cta",
+                    "label": "Global Centered CTA",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6732a8520c03e",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "This is a Global module and it's content can be edited in <a href=\"\/wp-admin\/admin.php?page=theme-general-settings\">Theme Settings<\/a>",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "min": "",
+            "max": "",
+            "button_label": "Add Module"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1731375933
+}

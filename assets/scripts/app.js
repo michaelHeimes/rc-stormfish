@@ -29,12 +29,12 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.abide.js
 
 // Tabs UI
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
 
 // Accordian
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.accordionMenu.js
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
 
 // Menu enhancements
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.drilldown.js
@@ -78,6 +78,9 @@
 
 // What Input
 //@prepros-prepend vendor/what-input.js
+
+// Swiper
+//@*prepros-prepend vendor/gsap/gsap-core.js
 
 // Swiper
 //@prepros-prepend vendor/swiper-bundle.js
@@ -142,6 +145,27 @@
             
         });
     }
+    
+    _app.testimonials_slider = function() {
+        const testimonialsSliders = document.querySelectorAll('.testimonials.module .slider-testimonials');
+        
+        testimonialsSliders.forEach(function(slider) {
+            const prev = slider.parentElement.parentElement.querySelector('.swiper-button-prev');
+            const next = slider.parentElement.parentElement.querySelector('.swiper-button-next');
+            new Swiper(slider, {
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true,
+                },
+                navigation: {
+                    nextEl: next,
+                    prevEl: prev,
+                },
+            });
+        });
+        
+
+    }
             
     _app.init = function() {
         
@@ -149,10 +173,11 @@
         _app.foundation_init();
         _app.emptyParentLinks();
         _app.fixed_nav_hack();
-        _app.display_on_load();
+        // _app.display_on_load();
         
         // Custom Functions
         //_app.mobile_takover_nav();
+        _app.testimonials_slider();
     }
     
     
