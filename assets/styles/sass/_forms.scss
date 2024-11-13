@@ -35,14 +35,19 @@ body .gform-theme.gform-theme--framework.gform_wrapper {
 	textarea,
 	.select2-container--default .select2-selection--single,
 	select {
+		@extend .h4;
+		text-transform: none !important;
+		color: $white;
 		box-shadow: 0 0 0;
+		border-radius: 0;
+		border: 0;
 		border-bottom: 1px solid $white;
 		background: rgba($white, 0.05) !important;
 		height: 4.0625rem !important;
 		&::placeholder {
 			color: rgba($white, 0.5) !important;
 			@extend .h4;
-			text-transform: none;
+			text-transform: none !important;
 		}
 		&[aria-expanded="true"] {
 			border-bottom-left-radius: 0 !important;

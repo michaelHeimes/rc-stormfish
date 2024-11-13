@@ -3,8 +3,8 @@
 register_nav_menus(
 	array(
 		'main-nav'		=> __( 'The Main Menu', 'trailhead' ),		// Main nav in header
-		'offcanvas-nav'	=> __( 'The Off-Canvas Menu', 'trailhead' ),	// Off-Canvas nav
-		'footer-links'	=> __( 'Footer Links', 'trailhead' ),		// Secondary nav in footer
+		'offcanvas-nav'	=> __( 'The Off-Canvas Menu', 'trailhead' ),
+		'footer-nav'	=> __( 'Footer Menu', 'trailhead' ),		// Secondary nav in footer
 		'social-links'	=> __( 'Social Links', 'trailhead' ),		// Social Nav
 	)
 );
@@ -15,7 +15,7 @@ function trailhead_top_nav() {
 	wp_nav_menu(array(
 		'container'			=> false,						// Remove nav container
 		'menu_id'			=> 'main-nav',					// Adding custom nav id
-		'menu_class'		=> 'medium-horizontal menu',	// Adding custom nav class
+		'menu_class'		=> 'medium-vertical menu align-center align-top h-100',	// Adding custom nav class
 		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion tablet-dropdown" data-submenu-toggle="true" data-hover-delay="200" data-closing-time="200">%3$s</ul>',
 		'theme_location'	=> 'main-nav',					// Where it's located in the theme
 		'depth'				=> 5,							// Limit the depth of the nav
@@ -59,9 +59,9 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
 function trailhead_footer_links() {
 	wp_nav_menu(array(
 		'container'			=> 'false',				// Remove nav container
-		'menu_id'			=> 'footer-links',		// Adding custom nav id
+		'menu_id'			=> 'footer-nav',		// Adding custom nav id
 		'menu_class'		=> 'menu',				// Adding custom nav class
-		'theme_location'	=> 'footer-links',		// Where it's located in the theme
+		'theme_location'	=> 'footer-nav',		// Where it's located in the theme
 		'depth'				=> 0,					// Limit the depth of the nav
 		'fallback_cb'		=> ''					// Fallback function
 	));
@@ -113,31 +113,8 @@ add_filter( 'nav_menu_css_class', 'required_active_nav_class', 10, 2 );
 		
 		// var_dump($args);
 		
-		if ( $args->theme_location == 'region-nav') {
+		if ( $args->theme_location == 'social-links') {
 		
-			// loop
-			foreach( $items as &$item ) {
-				
-				// vars
-				$icon = get_field('region_badge', $item);
-				$size = 'full';						
-				// append icon
-				if( $icon ) {
-					
-					$item->title = '<span class="icon-title-wrap grid-x flex-dir-column align-middle align-center"><span class="icon" aria-hidden="true"><img src="' . $icon['url'] . '" alt="' . $icon['alt'] . '"></span><span class="title">' . $item->title . '</span></span>';
-					
-				}
-				
-			}
-			
-						
-			// return
-			return $items;		
-			
-		}
-			
-		elseif ( $args->theme_location == 'social-links') {
-			
 			// loop
 			foreach( $items as &$item ) {
 				
@@ -147,15 +124,16 @@ add_filter( 'nav_menu_css_class', 'required_active_nav_class', 10, 2 );
 				// append icon
 				if( $icon ) {
 					
-					$item->title = '<span class="icon" aria-hidden="true"><img class="style-svg" src="' . $icon['url'] . '" alt="' . $icon['alt'] . '"></span><span class="show-for-sr"' . $item->title . '</span>';
+					$item->title = '<span class="icon-title-wrap grid-x flex-dir-column align-middle align-center"><span class="icon" aria-hidden="true"><img class="style-svg" src="' . $icon['url'] . '" alt="' . $icon['alt'] . '"></span><span class="title show-for-sr">' . $item->title . '</span></span>';
 					
 				}
 				
 			}
 			
+						
 			// return
 			return $items;		
-
+			
 		} else {			
 			// loop
 			foreach( $items as &$item ) {}

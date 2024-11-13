@@ -4,10 +4,11 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
+ $header_logo = get_field('header_logo', 'option') ?? null;
 ?>
 
 <div class="top-bar-wrap grid-container fluid">
-
+		
 	<div class="top-bar" id="top-bar-menu">
 	
 		<div class="top-bar-left float-left">
@@ -33,25 +34,24 @@
 			<ul class="menu">
 				<li class="logo"><a href="<?php echo home_url(); ?>">
 					<?php 
-					$image = get_field('header_logo', 'option');
-					if( !empty( $image ) ): ?>
-					    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-					<?php endif; ?>
+					if( $header_logo ) :
+						$size = 'full';
+						$image_id =  $header_logo['id'] ?? null;?>
+						<div class="img-wrap">
+							<?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
+						</div>
+					<?php endif;?>
 				</a></li>
 			</ul>
-						
 		</div>
-		<div class="top-bar-right show-for-tablet">
-			<div class="grid-x align-right">
-				<div class="cell shrink">
-					<?php trailhead_top_nav();?>
-				</div>
-			</div>
-		</div>
-		<div class="menu-toggle-wrap top-bar-right float-right hide-for-tablet">
+		<div class="menu-toggle-wrap top-bar-right float-right">
 			<ul class="menu">
 				<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-				<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
+				<li>
+					<a id="menu-toggle" aria-expanded="false">
+						<span></span><span></span>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>

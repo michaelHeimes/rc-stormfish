@@ -8,7 +8,7 @@ $text = get_sub_field('text') ?? null;
 $tabs = get_sub_field('tabs') ?? null;
 ?>
 <?php if( !empty( $heading ) || !empty( $text ) || !empty( $tabs ) ):?>
-<section class="services module">
+<section class="services module position-relative bg-ultra-blue">
     <div class="grid-container">
         <?php if( !empty( $heading ) || !empty( $text ) ):?>
             <div class="header grid-x grid-padding-x">

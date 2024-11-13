@@ -11,7 +11,7 @@ $button_link = get_sub_field('button_link') ?? null;
 $image = get_sub_field('image') ?? null;
 ?>
 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) || !empty( $image ) ):?>
-<section class="overlapping-text-image module layout-<?=esc_attr( $layout );?>">
+<section class="overlapping-text-image module position-relative bg-ultra-blue layout-<?=esc_attr( $layout );?>">
     <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x">
             <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) ):?>

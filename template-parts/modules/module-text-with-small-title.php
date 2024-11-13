@@ -7,7 +7,7 @@ $heading = get_sub_field('heading') ?? null;
 $copy = get_sub_field('copy') ?? null;
 ?>
 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $copy ) ):?>
-<section class="overlapping-text-image module layout-<?php if( empty($eyebrow_title) ) { echo 'no-eyebrow has-bg'; };?>">
+<section class="overlapping-text-image module position-relative position-relative bg-ultra-blue layout-<?php if( empty($eyebrow_title) ) { echo 'no-eyebrow has-bg'; };?>">
     <?php if( empty($eyebrow_title) ):?>
         <div class="bg" style="background-image: url('<?=get_template_directory_uri(); ?>/assets/images/pixels-mask.png'); background-size: cover;"></div>
     <?php endif;?>

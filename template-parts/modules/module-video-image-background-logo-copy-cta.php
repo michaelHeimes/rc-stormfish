@@ -11,7 +11,7 @@ $text = get_sub_field('text') ?? null;
 $button_link = get_sub_field('button_link') ?? null;
 ?>
 <?php if( !empty( $background_image ) || !empty( $background_video ) || !empty( $background_image ) || !empty( $logo ) || !empty( $heading ) || !empty( $text ) || !empty( $button_link ) ):?>
-<section class="video-image-background-logo-copy-cta module has-object-fit-img">
+<section class="video-image-background-logo-copy-cta module has-object-fit-img position-relative bg-ultra-blue">
 	<?php if( $background_type == 'video' && !empty( $background_video ) ) :?>
 		<video class="link-video img-fill" muted loop autoplay playsinline>
 			<source src="<?=esc_url($background_video['url']);?>" type="video/mp4">

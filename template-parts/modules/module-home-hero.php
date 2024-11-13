@@ -7,7 +7,7 @@ $heading = get_sub_field('heading') ?? null;
 $intro_text = get_sub_field('intro_text') ?? null;
 ?>
 <?php if( !empty( $background_image ) || !empty( $heading ) || !empty( $intro_text ) ):?>
-<section class="home-hero has-object-fit-img">
+<section class="home-hero has-object-fit-img position-relative bg-ultra-blue">
     <?php 
     if( $background_image ) {
         $size = 'full';

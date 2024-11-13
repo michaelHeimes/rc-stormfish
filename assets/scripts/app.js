@@ -79,8 +79,9 @@
 // What Input
 //@prepros-prepend vendor/what-input.js
 
-// Swiper
-//@*prepros-prepend vendor/gsap/gsap-core.js
+// GSAP
+//@prepros-prepend vendor/gsap/gsap.min.js
+//@prepros-prepend vendor/gsap/ScrollTrigger.min.js
 
 // Swiper
 //@prepros-prepend vendor/swiper-bundle.js
@@ -93,6 +94,7 @@
     
     _app.foundation_init = function() {
         $(document).foundation();
+        gsap.registerPlugin(ScrollTrigger);
     }
         
     _app.emptyParentLinks = function() {
@@ -130,20 +132,56 @@
     // Custom Functions
     
     _app.mobile_takover_nav = function() {
-        $(document).on('click', 'a#menu-toggle', function(){
-            
-            if ( $(this).hasClass('clicked') ) {
-                $(this).removeClass('clicked');
-                $('#off-canvas').fadeOut(200);
-            
+        const menuToggle = document.getElementById('menu-toggle');
+        const offCanvas = document.getElementById('off-canvas');
+        const offCanvasInner = offCanvas.querySelector('.inner');
+        
+        menuToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            if( document.body.classList.contains('js-nav-shown') ) {
+                document.body.classList.remove('js-nav-shown');
+                this.setAttribute('aria-expanded', 'false');
+                offCanvas.setAttribute('aria-hidden', 'true');
+                
+                gsap.to(
+                    offCanvasInner,{ 
+                        opacity: 0, 
+                        duration: 0.2,
+                        delay: 0, 
+                    }
+                );
+                
+                gsap.to(offCanvas, {
+                    bottom: 'calc(100% - 112px)',
+                    duration: .5,
+                    delay: 0,
+                    ease: 'circ.in'
+                });
+                
             } else {
+                
+                document.body.classList.add('js-nav-shown');
+                this.setAttribute('aria-expanded', 'true');
+                offCanvas.setAttribute('aria-hidden', 'false');
+
+                gsap.to(offCanvas, {
+                    bottom: '29px',
+                    duration: .5,
+                    ease: 'circ.in'
+                });
             
-                $(this).addClass('clicked');
-                $('#off-canvas').fadeIn(200);
-            
+                gsap.to(
+                    offCanvasInner,
+                    {
+                        opacity: 1, 
+                        duration: 0.2, 
+                        delay: 0.65 
+                    }
+                );
+                
             }
-            
         });
+        
     }
     
     _app.testimonials_slider = function() {
@@ -166,6 +204,44 @@
         
 
     }
+    
+    _app.heading_text_sticky_bg = function() {
+
+        const sections = document.querySelectorAll('.heading-left-copy-right-over-fixed-background-image');
+
+        function adjustBgHeight() {
+          sections.forEach((section) => {
+            const bgElement = section.querySelector('.bg');
+            if (!bgElement) return; // Skip if no `.bg` element
+        
+            // Find all `.section-row` elements in the section and determine the tallest one
+            const sectionRows = Array.from(section.querySelectorAll('.section-row'));
+            const tallestRowHeight = Math.max(...sectionRows.map(row => row.offsetHeight));
+        
+            // Set the `.bg` height to the tallest `.section-row` height
+            bgElement.style.height = `${tallestRowHeight}px`;
+          });
+        }
+        adjustBgHeight();
+        window.addEventListener('resize', adjustBgHeight);
+    
+        sections.forEach((section, index) => {
+            const bgElement = section.querySelector('.bg');
+            if (!bgElement) return;
+        
+            const pinDuration = section.offsetHeight;
+        
+        
+            ScrollTrigger.create({
+                trigger: section,
+                start: "center center",
+                end: `+=${pinDuration}`,
+                pin: bgElement,
+                //markers: true,
+            });
+        });
+
+    }
             
     _app.init = function() {
         
@@ -176,8 +252,9 @@
         // _app.display_on_load();
         
         // Custom Functions
-        //_app.mobile_takover_nav();
+        _app.mobile_takover_nav();
         _app.testimonials_slider();
+        _app.heading_text_sticky_bg();
     }
     
     

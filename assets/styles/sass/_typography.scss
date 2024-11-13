@@ -10,6 +10,9 @@ p.p24,
 h1,
 .h1 {
 	font-size: clamp(2.625rem, 2.143rem + 2.143vw, 3.75rem);
+	&.display {
+		font-family: $font-display;
+	}
 }
 
 h2,

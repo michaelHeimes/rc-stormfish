@@ -82,7 +82,7 @@ $black: #003044;
 $white: #fff;
 $body-background: $color-utra-blue;
 $body-font-color: $white;
-$body-font-family: 'Univers LT Std', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: $font-sans;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -873,9 +873,9 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
-$topbar-submenu-background: $topbar-background;
+$topbar-padding: 0;
+$topbar-background: transparent;
+$topbar-submenu-background: transparent;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;

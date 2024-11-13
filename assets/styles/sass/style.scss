@@ -59,7 +59,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 // @include foundation-dropdown-menu;
 
 // Layout components
-@include foundation-off-canvas;
+// @include foundation-off-canvas;
 // @include foundation-reveal;
 // @include foundation-sticky;
 //@include foundation-title-bar;
@@ -72,7 +72,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 // @include foundation-prototype-classes;
 
 // Import Motion-UI from vendor files
-@import "vendor/motion-ui";
+// @import "vendor/motion-ui";
 
 // Import Swiper
 @import "./css/vendor/swiper-bundle.min.css";
@@ -91,5 +91,6 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 // @import "_parts/banner";
 
 @import "_modules/testimonials";
+@import "_modules/heading-left-copy-right-over-fixed-background-image";
 
 @import "_pages/home";

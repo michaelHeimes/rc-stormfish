@@ -6,7 +6,7 @@ $heading = get_sub_field('heading') ?? null;
 $logos = get_sub_field('logos') ?? null;
 ?>
 <?php if( !empty( $heading ) || !empty( $logos) ):?>
-<section class="logos module">
+<section class="logos module position-relative bg-ultra-blue">
     <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x align-middle">
             <?php if( !empty( $heading ) || !empty( $logos ) ):?>

@@ -1,6 +1,6 @@
 {
     "key": "group_673299474e880",
-    "title": "MASTER: Heading Left, Copy Right",
+    "title": "MASTER: Text with Small Title",
     "fields": [
         {
             "key": "field_6732994729c86",
@@ -84,5 +84,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731369433
+    "modified": 1731436883
 }

@@ -49,6 +49,38 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_6733c05be71d4": {
+                    "key": "layout_6733c05be71d4",
+                    "name": "contact_hero",
+                    "label": "Contact Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6733c05ee71d7",
+                            "label": "Contact Hero",
+                            "name": "clone-contact_hero",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6733c008e8ace"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_6732968cd23bf": {
                     "key": "layout_6732968cd23bf",
                     "name": "logos",
@@ -103,6 +135,38 @@
                             },
                             "clone": [
                                 "group_673257c392dc2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6733f9bf835a0": {
+                    "key": "layout_6733f9bf835a0",
+                    "name": "orange_text_with_flyby_animation",
+                    "label": "Orange Text with Flyby Animation",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6733f9c5835a3",
+                            "label": "Orange Text with Flyby Animation",
+                            "name": "clone-orange_text_with_flyby_animation",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6733f8ecdedd0"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -179,8 +243,8 @@
                 },
                 "layout_673299e97d588": {
                     "key": "layout_673299e97d588",
-                    "name": "heading_left_copy_right",
-                    "label": "Heading Left, Copy Right",
+                    "name": "text_with_small_title",
+                    "label": "Text with Small Title",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -203,8 +267,8 @@
                         },
                         {
                             "key": "field_673299f07d58b",
-                            "label": "Heading Left, Copy Right",
-                            "name": "clone-heading_left_copy_right",
+                            "label": "text_with_small_title",
+                            "name": "clone-text_with_small_title",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -291,6 +355,70 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_6733a27323db6": {
+                    "key": "layout_6733a27323db6",
+                    "name": "heading_left_copy_right_over_fixed_background_image",
+                    "label": "Heading Left, Copy Right Over Fixed Background Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6733a27823db9",
+                            "label": "Heading Left, Copy Right Over Fixed Background Image",
+                            "name": "clone-heading_left_copy_right_over_fixed_background_image",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6733a04ee2448"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6733ba75098c1": {
+                    "key": "layout_6733ba75098c1",
+                    "name": "key_personnel",
+                    "label": "Key Personnel",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6733ba78098c4",
+                            "label": "Key Personnel",
+                            "name": "clone-key_personnel",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6733b9eaa4062"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_6732a8410c03b": {
                     "key": "layout_6732a8410c03b",
                     "name": "global_centered_cta",
@@ -345,5 +473,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731375933
+    "modified": 1731459579
 }

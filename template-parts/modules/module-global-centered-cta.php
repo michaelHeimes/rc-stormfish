@@ -7,7 +7,7 @@ $global_cta_text = get_field('global_cta_text', 'option') ?? null;
 $global_cta_button_link = get_field('global_cta_button_link', 'option') ?? null;
 ?>
 <?php if( !empty( $global_cta_heading ) || !empty( $global_cta_text ) || !empty( $global_cta_button_link ) ):?>
-<section class="global-cta">
+<section class="global-cta position-relative bg-ultra-blue">
 	<div class="module-spacing">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x align-middle align-center text-center">

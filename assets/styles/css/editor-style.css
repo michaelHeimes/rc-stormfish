@@ -17,4 +17,7 @@
 	a {
 		text-decoration: underline;
 	}
+	.acf-tooltip .acf-fc-popup a {
+		white-space: normal;
+	}
 }

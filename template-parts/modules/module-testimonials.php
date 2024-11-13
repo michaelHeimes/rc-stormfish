@@ -6,7 +6,7 @@ $heading = get_sub_field('heading') ?? null;
 $testimonials = get_sub_field('testimonials') ?? null;
 ?>
 <?php if( !empty( $heading ) || !empty( $testimonials ) ):?>
-<section class="testimonials module">
+<section class="testimonials module position-relative bg-ultra-blue">
     <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x">
             <?php if( !empty( $heading ) ):?>
