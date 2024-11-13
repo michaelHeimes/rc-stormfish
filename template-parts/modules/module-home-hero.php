@@ -14,17 +14,17 @@ $intro_text = get_sub_field('intro_text') ?? null;
         $image_id =  $background_image['id'] ?? null;
         echo wp_get_attachment_image( $image_id, $size, false, array( 'class' => 'img-fill' ) );
     }?>
-    <div class="grid-container position-relative">
-        <div class="grid-x grid-padding-x">
+    <div class="grid-container position-relative module-spacing grid-x align-bottom">
+        <div class="grid-x grid-padding-x h-100">
             <?php if( !empty( $heading ) || !empty( $intro_text ) ):?>
                 <div class="cell small-12 medium-10 large-8">
                     <?php if( !empty( $heading ) ):?>
-                        <h2>
+                        <h1>
                             <?=esc_html( $heading );?>
-                        </h2>
+                        </h1>
                     <?php endif;?>
                     <?php if( !empty( $intro_text ) ):?>
-                        <p class="p-30">
+                        <p class="p30">
                             <?=esc_html( $intro_text );?>
                         </p>
                     <?php endif;?>

@@ -90,7 +90,10 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 
 // @import "_parts/banner";
 
+@import "_modules/home-hero";
+@import "_modules/contact-hero";
 @import "_modules/testimonials";
 @import "_modules/heading-left-copy-right-over-fixed-background-image";
+@import "_modules/overlapping-text-image";
 
 @import "_pages/home";

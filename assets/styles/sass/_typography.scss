@@ -7,11 +7,21 @@ p.p24,
 	font-size: clamp(1.063rem, 0.875rem + 0.833vw, 1.5rem);
 }
 
+p.p30,
+.p30 p {
+	font-size: clamp(1.313rem, 1.071rem + 1.071vw, 1.875rem);
+	line-height: 1.25;
+}
+
+
 h1,
 .h1 {
 	font-size: clamp(2.625rem, 2.143rem + 2.143vw, 3.75rem);
 	&.display {
 		font-family: $font-display;
+		font-size: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+		line-height: 1;
+		color: rgba($white, .5);
 	}
 }
 

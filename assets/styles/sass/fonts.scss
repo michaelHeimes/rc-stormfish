@@ -1,4 +1,13 @@
 @font-face {
+  font-family: 'Univers LT Std Cn';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+     url('../fonts/univers-lt-std/UniversLTStd-LightCn.woff2') format('woff2'),
+     url('./fonts/univers-lt-std/UniversLTStd-LightCn.woff') format('woff');
+}
+
+@font-face {
   font-family: 'Univers LT Std';
   font-style: normal;
   font-weight: 300;

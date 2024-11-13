@@ -23,6 +23,34 @@ button,
 	}
 }
 
+.entry-content section:first-child .module-spacing {
+	padding-top: rem-calc(200) !important;
+}
+
+.module {
+	&.bottom-border {
+		border-bottom: 1px solid $white;
+	}
+}
+
+.eyebrow {
+	> * {
+		width: 100%;
+	}
+	span {
+		display: inline-block;
+		flex: 0 1 100px;
+		height: 1px;
+		background-color:  $color-clownfish-orange;
+		margin-left: rem-calc(18);
+	}
+}
+
+.img-stop {
+	max-width: 1440px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 /*********************
 POSTS & CONTENT STYLES

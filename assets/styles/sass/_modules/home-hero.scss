@@ -1,0 +1,13 @@
+.home-hero {
+	.module-spacing {
+		min-height: 100vh;
+		padding-top: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+		padding-bottom: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+	}
+	h1 {
+		margin-bottom: 0.52em;
+	}
+	.p30 {
+		max-width: rem-calc(610);
+	}
+}
