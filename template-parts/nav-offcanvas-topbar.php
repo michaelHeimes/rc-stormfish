@@ -17,11 +17,11 @@
 				<?php
 				if ( is_front_page() && is_home() ) :
 					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" tabindex="1"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php
 				else :
 					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" tabindex="1"><?php bloginfo( 'name' ); ?></a></p>
 					<?php
 				endif;
 				$trailhead_description = get_bloginfo( 'description', 'display' );
@@ -48,7 +48,7 @@
 			<ul class="menu">
 				<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
 				<li>
-					<a id="menu-toggle" aria-expanded="false">
+					<a id="menu-toggle" aria-expanded="false" tabindex="2">
 						<span></span><span></span>
 					</a>
 				</li>

@@ -11,12 +11,12 @@ $button_link = get_sub_field('button_link') ?? null;
 $image = get_sub_field('image') ?? null;
 ?>
 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) || !empty( $image ) ):?>
-<section class="overlapping-text-image module module-padding border-bottom position-relative bg-ultra-blue position-relative layout-<?=esc_attr( $layout );?>">
-    <div class="position-relative">
+<section class="overlapping-text-image overflow-hidden module module-padding border-bottom position-relative bg-ultra-blue position-relative module-padding layout-<?=esc_attr( $layout );?>">
+    <div class="position-relative img-stop">
         <div class="grid-container">
-            <div class="grid-x grid-padding-x module-padding">
+            <div class="grid-x grid-padding-x">
                 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) ):?>
-                    <div class="overlap cell small-12 medium-10 large-8 position-relative">
+                    <div class="overlap cell small-12 medium-9 large-6 xlarge-5 position-relative">
                         <?php if( !empty( $eyebrow_title ) ):?>
                             <div class="eyebrow grid-x align-middle">
                                 <h2 class="h4 grid-x text-nowrap align-middle">
@@ -52,10 +52,21 @@ $image = get_sub_field('image') ?? null;
                 
                 <?php 
                 if( $image ) :
-                    $size = 'full';
+                    $size = 'overlapping-text-image';
                     $image_id =  $image['id'] ?? null;?>
-                    <div class="img-wrap has-object-fit-img cell small-12 medium-10 large-4">
-                        <?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => 'img-fill' ) );?>
+                    <div class="img-wrap position-relative cell small-12 medium-10 large-6 xlarge-7">
+                        <?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
+                    </div>
+                <?php endif;?>
+                
+                <?php 
+                $imgID = $image['ID'] ?? null;
+                $img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+                $img = wp_get_attachment_image( $imgID, 'overlapping-text-image', false, [ "class" => "img-fill", "alt"=>$img_alt] );
+                
+                if( $imgID ) :?>
+                    <div class="img-wrap has-object-fit-img cell small-12 medium-3 large-4 xlarge-7 hide">
+                        <?=$img;?>
                     </div>
                 <?php endif;?>
                 

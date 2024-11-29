@@ -3,9 +3,9 @@ if(!defined('ABSPATH')) {
     exit;
 }
 $row_index = $args['row_index'];
-$heading = get_sub_field('heading') ?? null;
-$text = get_sub_field('text') ?? null;
-$tabs = get_sub_field('tabs') ?? null;
+$heading = get_field('services_heading', 'option') ?? null;
+$text = get_field('services_text', 'option') ?? null;
+$tabs = get_field('services_tabs', 'option') ?? null;
 ?>
 <?php if( !empty( $heading ) || !empty( $text ) || !empty( $tabs ) ):?>
 <section class="services module position-relative bg-ultra-blue">

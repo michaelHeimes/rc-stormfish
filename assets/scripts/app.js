@@ -131,58 +131,204 @@
     
     // Custom Functions
     
+    _app.loading_screen = function() {
+        const loadingScreen = document.getElementById('loading-screen');
+
+        if( ! loadingScreen ) return;
+        
+        const screenWidth = window.innerWidth;
+        const fishDuration = screenWidth * .0025;
+        const blurOverlap = fishDuration * .5;
+        const fish = loadingScreen.querySelector('.fish-wrap');
+        const fishWidth = fish.offsetWidth;
+        const headline = loadingScreen.querySelector('.h1');
+        const firstSection = document.querySelector('main section');
+        const allSections = document.querySelectorAll('main section');
+        const notFirstSections = Array.from(allSections).filter(section => section !== firstSection);
+        const firstSectionContent = firstSection.querySelector('div');
+        const offCanvas = document.querySelector('.off-canvas');
+        const header = document.querySelector('.site-header');
+        const body = document.querySelector('body');
+        body.style.overflow = 'hidden';
+        
+        const tl = gsap.timeline();
+        
+        tl.fromTo(
+            fish,
+            {
+                x: "-100%",
+                scale: 0.8,
+            },
+            {
+                x: "300%",
+                scale: 3,
+                duration: fishDuration,
+                ease: "power4.in",
+            }
+        );
+        
+        tl.fromTo(
+            headline,
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: 0.4,
+                ease: "power1.out",
+            }
+        )
+        .fromTo(
+            headline,
+            { filter: "blur(10px)" },
+            {
+                filter: "blur(0px)",
+                duration: 0.4,
+                ease: "back.out(1.7)",
+            },
+            "-=0.25"
+        )
+        .to(
+            headline,
+            { 
+                filter: "blur(10px)", 
+                duration: 0.3,
+                ease: "power1.out", 
+            },
+            "+=3"
+        )
+        .to(
+            headline,
+            { 
+                opacity: 0, 
+                duration: 0.3,
+                ease: "power1.out", 
+            },
+            
+        )
+        .fromTo(
+            loadingScreen,
+            { opacity: 1 },
+            {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power1.out",
+            },
+        )
+        .to(
+            loadingScreen,
+            { display: 'none' },
+        )
+        .fromTo(
+            firstSection,
+            { 
+                y: "-50%",
+                opacity: 0 
+            },
+            {
+                y: "0%",
+                opacity: 1,
+                duration: 1,
+                ease: "power1.out",
+            },
+            "-=.75"
+        )
+        .fromTo(
+            firstSectionContent,
+            { 
+                x: -100,
+                opacity: 0 
+            },
+            {
+                x: 0,
+                opacity: 1,
+                duration: .7,
+                ease: "power4.out",
+            },
+            "-=.2"
+        )
+        .fromTo(
+            offCanvas,
+            { 
+                y: -30,
+                opacity: 0 
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: .5,
+                ease: "power1.out",
+            },
+            "-=.45"
+        )
+        .fromTo(
+            header,
+            { 
+                y: -30,
+                opacity: 0 
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: .5,
+                ease: "power1.out",
+            },
+            "-=.30"
+        )
+        .fromTo(
+           notFirstSections,
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: .4,
+                ease: "power4.out",
+            },
+        )
+        .to(
+            body,
+            { overflow: 'auto' },
+        )
+        ;
+
+          
+       
+    }
+    
     _app.mobile_takover_nav = function() {
         const menuToggle = document.getElementById('menu-toggle');
         const offCanvas = document.getElementById('off-canvas');
+        if (!menuToggle || !offCanvas) return;
         const offCanvasInner = offCanvas.querySelector('.inner');
         
-        menuToggle.addEventListener('click', function(event) {
-            event.preventDefault();
-            if( document.body.classList.contains('js-nav-shown') ) {
+        const navToggle = function() {
+            if (document.body.classList.contains('js-nav-shown')) {
                 document.body.classList.remove('js-nav-shown');
-                this.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-expanded', 'false');
                 offCanvas.setAttribute('aria-hidden', 'true');
                 
-                gsap.to(
-                    offCanvasInner,{ 
-                        opacity: 0, 
-                        duration: 0.2,
-                        delay: 0, 
-                    }
-                );
-                
-                gsap.to(offCanvas, {
-                    bottom: 'calc(100% - 112px)',
-                    duration: .5,
-                    delay: 0,
-                    ease: 'circ.in'
-                });
+                gsap.to(offCanvasInner, { opacity: 0, duration: 0.2 });
+                gsap.to(offCanvas, { bottom: 'calc(100% - 112px)', duration: 0.5, ease: 'circ.in' });
                 
             } else {
-                
                 document.body.classList.add('js-nav-shown');
-                this.setAttribute('aria-expanded', 'true');
+                menuToggle.setAttribute('aria-expanded', 'true');
                 offCanvas.setAttribute('aria-hidden', 'false');
-
-                gsap.to(offCanvas, {
-                    bottom: '29px',
-                    duration: .5,
-                    ease: 'circ.in'
-                });
-            
-                gsap.to(
-                    offCanvasInner,
-                    {
-                        opacity: 1, 
-                        duration: 0.2, 
-                        delay: 0.65 
-                    }
-                );
                 
+                gsap.to(offCanvas, { bottom: '29px', duration: 0.5, ease: 'circ.in' });
+                gsap.to(offCanvasInner, { opacity: 1, duration: 0.2, delay: 0.65 });
+            }
+        };
+        
+        // Add event listeners
+        menuToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            navToggle();
+        });
+        menuToggle.addEventListener('keydown', function(event) {
+            if (event.keyCode === 13) { // Enter key
+                event.preventDefault();
+                navToggle();
             }
         });
-        
-    }
+    };
     
     _app.testimonials_slider = function() {
         const testimonialsSliders = document.querySelectorAll('.testimonials.module .slider-testimonials');
@@ -248,10 +394,11 @@
         // Standard Functions
         _app.foundation_init();
         _app.emptyParentLinks();
-        _app.fixed_nav_hack();
+        // _app.fixed_nav_hack();
         // _app.display_on_load();
         
         // Custom Functions
+        _app.loading_screen();
         _app.mobile_takover_nav();
         _app.testimonials_slider();
         _app.heading_text_sticky_bg();

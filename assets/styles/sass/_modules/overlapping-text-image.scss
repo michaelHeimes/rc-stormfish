@@ -10,13 +10,36 @@
 	.overlap {
 		z-index: 1;
 	}
+	.img-wrap {
+	}
 	@include breakpoint(medium) {
+		h3 {
+			width: 120%;
+		}
 		.img-wrap {
+			text-align: right;
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			right: 0;
-			width: 60.329%;
+			right: -10%;
+			width: 75%;
+			img {
+				max-height: 100%;
+				width: auto;
+			}
+		}
+	}
+	@include breakpoint(large) {
+		h3 {
+			width: 170%;
+		}
+		.img-wrap {
+			width: 62%;
+		}
+	}
+	@include breakpoint(xlarge) {
+		h3 {
+			width: 200%;
 		}
 	}
 }

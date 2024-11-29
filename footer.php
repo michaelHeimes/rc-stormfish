@@ -79,7 +79,22 @@ $copyright_text = get_field('copyright_text', 'option') ?? null;
 		</div>  <!-- end .off-canvas-content -->
 							
 	</div> <!-- end .off-canvas-wrapper -->
-					
+	<?php if( is_home() ):
+		$loading_screen_text = get_field('loading_screen_text', 'option') ?? null;	
+	?>
+	<div id="loading-screen" class="bg-ultra-blue">
+		<div class="fish-wrap grid-x align-middle">
+			<img src="<?=get_template_directory_uri();?>/assets/images/fish-white.png"/>
+		</div>
+		<div class="grid-container h-100">
+			<div class="grid-x align-middle h-100">
+				<div class="cell small-12 message h1 display" style="opacity: 0;">
+					<?=wp_kses_post($loading_screen_text);?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endif;?>
 <?php wp_footer(); ?>
 
 </body>

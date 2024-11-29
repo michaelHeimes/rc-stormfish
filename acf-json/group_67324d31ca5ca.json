@@ -24,6 +24,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6734c3e99104e",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
                             "key": "field_6732523716f51",
                             "label": "Home Hero",
                             "name": "clone-home_hero",
@@ -55,6 +77,28 @@
                     "label": "Contact Hero",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6734c4099104f",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
                         {
                             "key": "field_6733c05ee71d7",
                             "label": "Contact Hero",
@@ -88,6 +132,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6734c42591050",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
                             "key": "field_67329692d23c2",
                             "label": "Logos",
                             "name": "clone-logos",
@@ -119,6 +185,28 @@
                     "label": "Overlapping Text and Image",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6734c4407bee8",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
                         {
                             "key": "field_67325917c48e4",
                             "label": "Overlapping Text and Image",
@@ -152,6 +240,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6734c459f8b86",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
                             "key": "field_6733f9c5835a3",
                             "label": "Orange Text with Flyby Animation",
                             "name": "clone-orange_text_with_flyby_animation",
@@ -184,9 +294,9 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_6732866f7ddbd",
-                            "label": "Services",
-                            "name": "clone-services",
+                            "key": "field_6734c496f8b87",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -198,12 +308,30 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_673285d48af36"
+                                "group_6734c3b2d6979"
                             ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
+                        },
+                        {
+                            "key": "field_6734caf58e551",
+                            "label": "Service Tabs",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "This is a Global module and it's content can be edited in <a href=\"\/wp-admin\/admin.php?page=theme-general-settings\">Theme Settings<\/a>",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
                         }
                     ],
                     "min": "",
@@ -215,6 +343,28 @@
                     "label": "Video\/Image Background Logo, Copy & CTA",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6734c4a6f8b88",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
                         {
                             "key": "field_6732800a86e46",
                             "label": "Video\/Image Background Logo, Copy & CTA",
@@ -247,6 +397,28 @@
                     "label": "Text with Small Title",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6734c4b5f8b89",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
                         {
                             "key": "field_67329a2ff99c7",
                             "label": "",
@@ -298,6 +470,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6734c4c4f8b8a",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
                             "key": "field_6732a003ef107",
                             "label": "Testimonials",
                             "name": "clone-testimonials",
@@ -329,6 +523,28 @@
                     "label": "50\/50 Content\/Media",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6734c4d5f8b8b",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
                         {
                             "key": "field_6732b3318f321",
                             "label": "50\/50 Content\/Media",
@@ -362,6 +578,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6734c4e1f8b8c",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
                             "key": "field_6733a27823db9",
                             "label": "Heading Left, Copy Right Over Fixed Background Image",
                             "name": "clone-heading_left_copy_right_over_fixed_background_image",
@@ -394,6 +632,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6734c4f2f8b8d",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
                             "key": "field_6733ba78098c4",
                             "label": "Key Personnel",
                             "name": "clone-key_personnel",
@@ -425,6 +685,28 @@
                     "label": "Global Centered CTA",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6734c501f8b8e",
+                            "label": "Module Settings",
+                            "name": "clone-module_settings",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6734c3b2d6979"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
                         {
                             "key": "field_6732a8520c03e",
                             "label": "",
@@ -473,5 +755,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731459579
+    "modified": 1732908401
 }

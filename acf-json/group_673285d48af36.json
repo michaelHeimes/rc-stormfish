@@ -5,7 +5,7 @@
         {
             "key": "field_673285d53ba6f",
             "label": "Heading",
-            "name": "heading",
+            "name": "services_heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -26,7 +26,7 @@
         {
             "key": "field_673285ef3ba70",
             "label": "Text",
-            "name": "text",
+            "name": "services_text",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -65,7 +65,7 @@
         {
             "key": "field_673286053ba71",
             "label": "Tabs",
-            "name": "tabs",
+            "name": "services_tabs",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -130,7 +130,7 @@
                     "max_size": "",
                     "mime_types": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium",
+                    "preview_size": "thumbnail",
                     "parent_repeater": "field_673286053ba71"
                 },
                 {
@@ -176,5 +176,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731459264
+    "modified": 1731513387
 }
