@@ -1,41 +1,88 @@
 footer#colophon {
-
-	.site-info {
-
-	}
-	
-	.left {
-		.bottom {
-			@include breakpoint(medium down) {
-				padding-bottom: 4.1rem;
-			}
-		}
-	}
-		
-	ul#footer-links {
-		@include breakpoint(medium down) {
-			padding-bottom: 4.08rem;
-		}
-		li {
-			a {
-				font-size: rem-calc(14);
-				line-height: rem-calc(19);
-				font-weight: bold;
-				text-transform: uppercase;
-			}
-		}
-	}
-	
-	.copyright {
-		margin-bottom: 0;
-		@include breakpoint(medium down) {
-			text-align: center;
-		}
+	padding-top: clamp(3.5rem, 2.429rem + 2.857vw, 5rem);
+	padding-bottom: .4rem;
+	p,
+	.p,
+	a {
+		color: rgba($white, .75);
+	}	
+	.top {
+		text-align: center;
 		@include breakpoint(tablet) {
-			br {
-				display: none;
+			text-align: left;
+		}
+		.left {
+			padding-bottom: 1rem;
+			p {
+				margin-top: 1.7em;
+			}
+		}
+		
+		.right {
+			ul {
+				justify-content: center;
+				@include breakpoint(tablet) {
+					justify-content: flex-end;
+				}
+			}
+		}
+		
+		ul#footer-nav {
+			@include breakpoint(tablet) {
+				padding-bottom: rem-calc(11);
+			}
+			li {
+				margin: rem-calc(8) rem-calc(16);
+				@include breakpoint(tablet) {
+					margin: 0 0 rem-calc(22) rem-calc(44);
+				}
+				a {
+					@extend .h4;
+				}
+			}
+		}
+		
+		ul#social-links {
+			margin-bottom: 1rem;
+			@include breakpoint(medium down) {
+				padding-bottom: 2rem;
+			}
+			li {
+				margin: rem-calc(8);
+				@include breakpoint(tablet) {
+					margin: rem-calc(8) rem-calc(16);
+				}
 			}
 		}
 	}
+	
+	.site-info {
+		border-top: 1px solid rgba($white, .3);
+		padding-top: 1.6rem;
+		p,
+		.p,
+		a {
+			font-size: rem-calc(14);
+		}
+		.left,
+		.right {
+			padding-bottom: 1.5rem;
+		}
+		.left {
+			justify-content: center;
+			@include breakpoint(tablet) {
+				justify-content: flex-start;
+			}
+		}
+		.right {
+			text-align: center;
+			justify-content: center;
+			@include breakpoint(tablet) {
+				text-align: left;
+				justify-content: flex-end;
+			}
+		}
+	}
+
 	
 }

@@ -34,10 +34,22 @@ h2,
 }
 
 .tabs-title > a,
+a.h3.accordion-title,
 h3,
 .h3 {
 	font-weight: 700;
 	font-size: clamp(1.094rem, 0.893rem + 0.893vw, 1.563rem);
+}
+
+a.h3.accordion-title {
+	margin: 0;	
+	transition: color .25s ease;
+	&:before {
+		transform: translateY(-.15em);
+	}
+	&:focus {
+		color: $white;
+	}
 }
 
 h4,

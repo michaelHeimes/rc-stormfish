@@ -14,11 +14,11 @@ $subfooter_links = get_field('subfooter_links', 'option') ?? null;
 $copyright_text = get_field('copyright_text', 'option') ?? null;
 ?>
 
-				<footer id="colophon" class="site-footer">
-					<div class="grid-container">
-						<div class="grid-x grid-padding-x">
+				<footer id="colophon" class="site-footer bg-ocean-blue">
+					<div class="top grid-container">
+						<div class="grid-x grid-padding-x align-middle">
 							<?php if( !empty( $footer_logo ) || !empty( $footer_text ) ):?>
-								<div class="cell small-12 medium-4">
+								<div class="left cell small-12 tablet-5">
 									<?php 
 									if( $footer_logo ) :
 										$size = 'full';
@@ -34,7 +34,7 @@ $copyright_text = get_field('copyright_text', 'option') ?? null;
 									<?php endif;?>
 								</div>
 							<?php endif;?>
-							<div class="cell small-12 medium-4">
+							<div class="right cell small-12 tablet-7">
 								<?php trailhead_footer_links();?>
 								<?php trailhead_social_links();?>
 							</div>
@@ -44,7 +44,7 @@ $copyright_text = get_field('copyright_text', 'option') ?? null;
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<?php if( !empty( $subfooter_links ) ):?>
-									<div class="cell small-12 medium-shrink">
+									<div class="left cell small-12 tablet-5 grid-x">
 										<ul class="menu horizontal">
 											<?php foreach($subfooter_links as $subfooter_link):
 												$link = $subfooter_link['link'];	
@@ -63,10 +63,10 @@ $copyright_text = get_field('copyright_text', 'option') ?? null;
 										</ul>
 									</div>
 								<?php endif;?>
-								<div class="cell small-12 medium-auto">
+								<div class="right cell small-12 tablet-7 p grid-x">
 									Copyright &copy;<?php echo date('Y'); ?>
 									<?php if( !empty( $copyright_text ) ) {
-										echo esc_html( $copyright_text );
+										echo wp_kses_post( $copyright_text );
 									};?>
 								</div>
 							</div>

@@ -1,0 +1,12 @@
+.global-centered-cta {
+	.module-spacing {
+		padding-top: clamp(8.225rem, 5.707rem + 6.714vw, 11.75rem);
+		padding-bottom: clamp(8.225rem, 5.707rem + 6.714vw, 11.75rem);
+	}
+	h2 {
+		margin-bottom: 0.66em;
+	}
+	p.p24 {
+		padding-bottom: 0.42em;
+	}
+}

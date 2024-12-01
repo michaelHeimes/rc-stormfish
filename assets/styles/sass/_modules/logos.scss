@@ -1,0 +1,25 @@
+.logos.module {
+	padding-top: clamp(3.544rem, 2.459rem + 2.893vw, 5.063rem);
+	padding-bottom: clamp(3.544rem, 2.459rem + 2.893vw, 5.063rem);
+	.grid-x {
+		> .cell {
+			margin: calc($smallGutter * .5) 0;
+			.logo-wrap {
+				max-width: 275px;
+			}
+		}
+		@include breakpoint(large) {
+			margin: calc($mediumGutter * .5) 0;
+		}
+		@include breakpoint(large) {
+			margin-left: calc(-#{$mediumGutter} * 0.75);
+			margin-right: calc(-#{$mediumGutter} * 0.75);
+			> .cell {
+				padding: 0 calc($mediumGutter * .75);
+				margin: calc($mediumGutter * .5) 0;
+			}
+		}
+	}
+	.logo-wrap {
+	}
+}

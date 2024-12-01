@@ -7,7 +7,7 @@ $large_text = get_sub_field('large_text') ?? null;
 $medium_text = get_sub_field('medium_text') ?? null;
 ?>
 <?php if( !empty( $large_text ) || !empty( $medium_text ) ):?>
-<section class="orange-text-with-flyby-animation module module-padding position-relative bg-ultra-blue overflow-hidden
+<section class="orange-text-with-flyby-animation module has-animated-pipe module-padding position-relative bg-ultra-blue overflow-hidden
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
 	<div class="fish-wrap grid-x align-middle">

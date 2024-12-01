@@ -442,14 +442,67 @@
         
     }
     
-    _app.testimonials_slider = function() {
-        const testimonialsSliders = document.querySelectorAll('.testimonials.module .slider-testimonials');
+    _app.keyPersonnel = function() {
+        const rows = document.querySelectorAll('.person-row');
         
-        testimonialsSliders.forEach((slider) => {
+        if(rows.length < 1) return;
+        
+        rows.forEach(row => {
+           
+           const pipe = row.querySelector('.pipe span');
+           
+           let tl = gsap.timeline({
+               // yes, we can add it to an entire timeline!
+               scrollTrigger: {
+                   trigger: row,
+                   start: "top bottom-=200", 
+               }
+           });
+           
+           tl.fromTo(
+               row,
+               {
+                   y: "50",
+                   opacity: 0,
+               },
+               {
+                   y: "0",
+                   opacity: 1,
+                   duration: .8,
+                   ease: "circ.out",
+               }
+           )
+           .fromTo(
+               pipe,
+               { 
+                   width: "0",
+               },
+               {
+                   width: "100%",
+                   duration: 1,
+                   ease: "circ.out",
+               },
+               "-=0.05"
+           );
             
-            const prev = slider.parentElement.parentElement.querySelector('.swiper-button-prev');
-            const next = slider.parentElement.parentElement.querySelector('.swiper-button-next');
+        });
+        
+    }
+    
+
+    _app.testimonials_slider = function() {
+        const testimonialModules = document.querySelectorAll('.testimonials.module');
+        
+        if( testimonialModules.length < 1 ) return;
+        
+        testimonialModules.forEach(module => {
+        
+            const slider = module.querySelector('.slider-testimonials');
+    
+            const prev = module.querySelector('.swiper-button-prev');
+            const next = module.querySelector('.swiper-button-next');
             new Swiper(slider, {
+                loop: true,
                 effect: "fade",
                 fadeEffect: {
                     crossFade: true,
@@ -459,8 +512,86 @@
                     prevEl: prev,
                 },
             });
+            
+            const mobilePipe = module.querySelector('.pipe.mobile span');
+            const desktopPipe = module.querySelector('.pipe.desktop span');
+                        
+            let tl = gsap.timeline({
+                // yes, we can add it to an entire timeline!
+                scrollTrigger: {
+                    trigger: slider,
+                    start: "top bottom-=200", 
+                }
+            });
+            
+            tl.fromTo(
+                mobilePipe,
+                {
+                    width: "0%",
+                },
+                {
+                    width: "100%",
+                    duration: 1,
+                    ease: "power3.out",
+                }
+            )
+            .fromTo(
+                desktopPipe,
+                {
+                    height: "0%",
+                },
+                {
+                    height: "100%",
+                    duration: 1,
+                    ease: "power3.out",
+                }
+            )
+            .fromTo(
+                slider,
+                {
+                    x: -30,
+                    opacity: 0,
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: .5,
+                    ease: "circ.out",
+                },
+                "-=.8"
+            )
+            .fromTo(
+                prev,
+                {
+                    x: -20,
+                    opacity: 0,
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: .5,
+                    ease: "circ.out",
+                },
+                "-=.20"
+            )
+            .fromTo(
+                next,
+                {
+                    x: -20,
+                    opacity: 0,
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: .5,
+                    ease: "circ.out",
+                },
+                "-=.30"
+            )
+            ;
+            
+                
         });
-        
 
     }
     
@@ -483,6 +614,7 @@
         window.addEventListener('resize', adjustBgHeight);
     
         sections.forEach((section, index) => {
+                        
             const bgElement = section.querySelector('.bg');
             if (!bgElement) return;
         
@@ -496,6 +628,62 @@
                 pin: bgElement,
                 //markers: true,
             });
+            
+            const sectionRows = section.querySelectorAll('.section-row');
+            sectionRows.forEach(row => {
+                console.log(row);
+                
+               const mobilePipe = row.querySelector('.pipe.mobile span');
+               const desktopPipe = row.querySelector('.pipe.desktop span');
+               const copy = row.querySelector('.copy-wrap');
+                           
+               let tl = gsap.timeline({
+                   // yes, we can add it to an entire timeline!
+                   scrollTrigger: {
+                       trigger: row,
+                       start: "top bottom-=200", 
+                   }
+               });
+               
+               tl.fromTo(
+                   mobilePipe,
+                   {
+                       width: "0%",
+                   },
+                   {
+                       width: "100%",
+                       duration: 1,
+                       ease: "power3.out",
+                   }
+               )
+               .fromTo(
+                   desktopPipe,
+                   {
+                       height: "0%",
+                   },
+                   {
+                       height: "100%",
+                       duration: 1,
+                       ease: "power3.out",
+                   }
+               )
+               .fromTo(
+                   copy,
+                   {
+                       x: -30,
+                       opacity: 0,
+                   },
+                   {
+                       x: 0,
+                       opacity: 1,
+                       duration: .8,
+                       ease: "circ.out",
+                   },
+                   "-=.8"
+               )
+               ; 
+            });
+            
         });
 
     }
@@ -508,46 +696,50 @@
         
         parallaxSections.forEach((section) => {
 
-          const parallax1 = section.querySelector('.parallax-1');
-          const parallax2 = section.querySelector('.parallax-2');
-        
-          if (parallax1 || parallax2) {
-              
-            const computedStyle = window.getComputedStyle(section);
-            const topPadding = parseFloat(computedStyle.paddingTop);
-            const bottomPadding = parseFloat(computedStyle.paddingBottom);
+            const parallax1s = section.querySelectorAll('.parallax-1');
+            const parallax2s = section.querySelectorAll('.parallax-2');
             
-            const p1Offset = topPadding * 1;
-            const p2Offset = bottomPadding  * .8;
-                        
-            if (parallax1) {
-                gsap.to(parallax1, {
-                    y: p1Offset,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top bottom',
-                        end: 'bottom top',
-                        scrub: 1,
-                        ease: "power2.inOut",
-                    },
+            if ( parallax1s.length > 0 || parallax2s.length > 0 ) {
+                
+                const computedStyle = window.getComputedStyle(section);
+                const topPadding = parseFloat(computedStyle.paddingTop);
+                const bottomPadding = parseFloat(computedStyle.paddingBottom);
+                
+                const p1Offset = topPadding * 1;
+                const p2Offset = bottomPadding  * .8;
+                            
+                parallax1s.forEach((parallax1) => {
+                    if (parallax1) {
+                        gsap.to(parallax1, {
+                            y: p1Offset,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: 1,
+                                ease: "power2.inOut",
+                            },
+                        });
+                    }
+                });
+                
+                parallax2s.forEach((parallax2) => {
+                    if (parallax2) {
+                        gsap.to(parallax2, {
+                            y: -p2Offset,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: 1,
+                                ease: "power2.inOut",
+                            },
+                        });
+                    }
                 });
             }
-            
-            if (parallax2) {
-                gsap.to(parallax2, {
-                    y: -p2Offset,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top bottom',
-                        end: 'bottom top',
-                        scrub: 1,
-                        ease: "power2.inOut",
-                    },
-                });
-            }
-          }
         });
     }
     
@@ -590,11 +782,12 @@
         _app.mobile_takover_nav();
         _app.eyebrows();
         _app.testimonials_slider();
-        _app.playLoopingVidInView();
         _app.orange_text_flyby();
+        _app.keyPersonnel();
         _app.heading_text_sticky_bg();
         _app.parallax_scrolling();
         _app.contact_hero();
+        _app.playLoopingVidInView();
     }
     
     

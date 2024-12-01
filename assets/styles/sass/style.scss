@@ -48,7 +48,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @include foundation-accordion;
 //@include foundation-media-object;
 //@include foundation-orbit;
-// @include foundation-responsive-embed;
+@include foundation-responsive-embed;
 @include foundation-tabs;
 //@include foundation-thumbnail;
 // Menu-based containers
@@ -99,5 +99,9 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_modules/orange-text-with-flyby-animation";
 @import "_modules/titles-left-copy-right";
 @import "_modules/services";
+@import "_modules/logos";
+@import "_modules/content-50-50";
+@import "_modules/key-personnel";
+@import "_modules/global-centered-cta";
 
 @import "_pages/home";

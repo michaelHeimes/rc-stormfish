@@ -1,0 +1,4 @@
+.logos.module {
+  padding-top: clamp(5.425rem, 3.764rem + 4.429vw, 7.75rem);
+  padding-bottom: clamp(5.425rem, 3.764rem + 4.429vw, 7.75rem);
+}
