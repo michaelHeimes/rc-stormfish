@@ -38,6 +38,26 @@ footer#colophon {
 				}
 				a {
 					@extend .h4;
+					transition: color .3s ease;
+					span {
+						display: inline-block;
+						&:after {
+							content: '';
+							display: block;
+							height: 1px;
+							background-color: $color-clownfish-orange;
+							width: 0%;
+							transition: width .3s ease;
+						}
+					}
+				}
+			}
+			.current-menu-item a,
+			a:hover,
+			a:focus {
+				color: $color-clownfish-orange;
+				span:after {
+					width: 100%;
 				}
 			}
 		}
@@ -52,6 +72,19 @@ footer#colophon {
 				@include breakpoint(tablet) {
 					margin: rem-calc(8) rem-calc(16);
 				}
+				a {
+					svg {
+						g {
+							transition: .25s ease;
+						}
+					}
+					&:hover,
+					&:focus {
+						g {
+							fill: $color-clownfish-orange;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -63,6 +96,13 @@ footer#colophon {
 		.p,
 		a {
 			font-size: rem-calc(14);
+		}
+		a {
+			transition: color .25s ease;
+			&:hover,
+			&:focus {
+				color: $color-clownfish-orange;
+			}
 		}
 		.left,
 		.right {

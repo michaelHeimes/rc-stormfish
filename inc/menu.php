@@ -63,7 +63,9 @@ function trailhead_footer_links() {
 		'menu_class'		=> 'menu',				// Adding custom nav class
 		'theme_location'	=> 'footer-nav',		// Where it's located in the theme
 		'depth'				=> 0,					// Limit the depth of the nav
-		'fallback_cb'		=> ''					// Fallback function
+		'fallback_cb'		=> '',					// Fallback function
+		'link_before'    => '<span>',
+		'link_after'     => '</span>'
 	));
 } /* End Footer Menu */
 

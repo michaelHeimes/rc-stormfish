@@ -29,22 +29,12 @@ header.site-header {
 		}
 		li.logo {
 			transition: opacity .2s ease .65s;
-			@include breakpoint(medium) {
-
-			}
-			@include breakpoint(tablet) {
-
-			}
 			a {
 				padding: 0;
 			}			
 		}
 		&.no-blur {
 			backdrop-filter: blur(0);
-		}
-			
-		#main-nav {
-
 		}
 		
 		.menu-toggle-wrap {
@@ -202,17 +192,19 @@ header.site-header {
 						transition: opacity .25s ease;
 					}
 				}
-				&:hover {
-					color: $color-clownfish-orange;
-					span:before {
-						opacity: 1;
-					}
-				}
 			}
 			&:not(:last-child) {
 				a {
 					border-bottom: 1px solid rgba($white, .3);
 				}
+			}
+		}
+		.current-menu-item a,
+		a:hover,
+		a:focus {
+			color: $color-clownfish-orange;
+			span:before {
+				opacity: 1;
 			}
 		}
 	}
