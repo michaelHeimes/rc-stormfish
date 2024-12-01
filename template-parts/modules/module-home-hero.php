@@ -2,12 +2,15 @@
 if(!defined('ABSPATH')) {
     exit;
 }
+$remove_bottom_border = get_sub_field('remove_bottom_border') ?? null;
 $background_image = get_sub_field('background_image') ?? null;
 $heading = get_sub_field('heading') ?? null;
 $intro_text = get_sub_field('intro_text') ?? null;
 ?>
 <?php if( !empty( $background_image ) || !empty( $heading ) || !empty( $intro_text ) ):?>
-<section class="home-hero has-object-fit-img position-relative bg-ultra-blue">
+<section class="home-hero module has-object-fit-img position-relative bg-ultra-blue
+<?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
+">
     <?php 
     if( $background_image ) {
         $size = 'full';

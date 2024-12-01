@@ -95,5 +95,9 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_modules/testimonials";
 @import "_modules/heading-left-copy-right-over-fixed-background-image";
 @import "_modules/overlapping-text-image";
+@import "_modules/video-image-background-logo-copy-cta";
+@import "_modules/orange-text-with-flyby-animation";
+@import "_modules/titles-left-copy-right";
+@import "_modules/services";
 
 @import "_pages/home";

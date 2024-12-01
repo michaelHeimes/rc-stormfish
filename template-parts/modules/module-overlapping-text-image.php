@@ -2,6 +2,7 @@
 if(!defined('ABSPATH')) {
     exit;
 }
+$remove_bottom_border = get_sub_field('remove_bottom_border') ?? null;
 $layout = get_sub_field('layout') ?? null;
 $eyebrow_title = get_sub_field('eyebrow_title') ?? null;
 $heading = get_sub_field('heading') ?? null;
@@ -11,12 +12,15 @@ $button_link = get_sub_field('button_link') ?? null;
 $image = get_sub_field('image') ?? null;
 ?>
 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) || !empty( $image ) ):?>
-<section class="overlapping-text-image overflow-hidden module module-padding border-bottom position-relative bg-ultra-blue position-relative module-padding layout-<?=esc_attr( $layout );?>">
+<section class="overlapping-text-image parallax-section overflow-hidden module module-padding border-bottom position-relative bg-ultra-blue position-relative module-padding layout-<?=esc_attr( $layout );?>
+    <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
+    
+">
     <div class="position-relative img-stop">
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
                 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) ):?>
-                    <div class="overlap cell small-12 medium-9 large-6 xlarge-5 position-relative">
+                    <div class="overlap cell small-12 medium-9 large-6 xlarge-5 position-relative parallax-1">
                         <?php if( !empty( $eyebrow_title ) ):?>
                             <div class="eyebrow grid-x align-middle">
                                 <h2 class="h4 grid-x text-nowrap align-middle">
@@ -30,7 +34,12 @@ $image = get_sub_field('image') ?? null;
                                 <?=esc_html( $heading );?>
                             </h3>
                         <?php endif;?>
-                        <?php if( !empty( $description_text ) && $layout !== 'large-heading' ):?>
+                        <?php if( !empty( $subheading ) && $layout !== 'large-heading' ):?>
+                            <h4 class="h3">
+                                <b><?=esc_html( $subheading );?></b>
+                            </h4>
+                        <?php endif;?>    
+                        <?php if( !empty( $description_text ) && $layout !== 'large-heading' && $layout !== 'heading-subheading' ):?>
                             <div class="description-text">
                                 <?=wp_kses_post( $description_text );?>
                             </div>
@@ -42,10 +51,12 @@ $image = get_sub_field('image') ?? null;
                             $link_title = $link['title'];
                             $link_target = $link['target'] ? $link['target'] : '_self';
                             ?>
-                            <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-                                <span><?php echo esc_html( $link_title ); ?></span>
-                                <svg width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.9 0v1.527h7.493L0 9.92 1.08 11l8.393-8.393v7.492H11V0H.9Z" fill="#FF8E2E"/></svg>
-                            </a>
+                            <div class="btn-wrap">
+                                <a class="button no-margin" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                    <span><?php echo esc_html( $link_title ); ?></span>
+                                    <svg width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.9 0v1.527h7.493L0 9.92 1.08 11l8.393-8.393v7.492H11V0H.9Z" fill="#FF8E2E"/></svg>
+                                </a>
+                            </div>
                         <?php endif; ?>
                     </div>
                 <?php endif;?>
@@ -54,19 +65,10 @@ $image = get_sub_field('image') ?? null;
                 if( $image ) :
                     $size = 'overlapping-text-image';
                     $image_id =  $image['id'] ?? null;?>
-                    <div class="img-wrap position-relative cell small-12 medium-10 large-6 xlarge-7">
+                    <div class="img-wrap position-relative cell small-12 medium-10 large-6 xlarge-7 parallax-2">
+                        <div class="img-wrap-inner">
                         <?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
-                    </div>
-                <?php endif;?>
-                
-                <?php 
-                $imgID = $image['ID'] ?? null;
-                $img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-                $img = wp_get_attachment_image( $imgID, 'overlapping-text-image', false, [ "class" => "img-fill", "alt"=>$img_alt] );
-                
-                if( $imgID ) :?>
-                    <div class="img-wrap has-object-fit-img cell small-12 medium-3 large-4 xlarge-7 hide">
-                        <?=$img;?>
+                        </div>
                     </div>
                 <?php endif;?>
                 

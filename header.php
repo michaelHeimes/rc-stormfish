@@ -24,12 +24,15 @@
 	<?php wp_body_open(); ?>
 			<a class="skip-link screen-reader-text show-on-focus" href="#primary"><?php esc_html_e( 'Skip to content', 'trailhead' ); ?></a>
 			
-			<?php get_template_part( 'template-parts/content', 'offcanvas' ); ?>
+			<div id="header-wrap">
 			
-			<header class="site-header" role="banner" data-sticky data-margin-top="0" data-sticky-on="small">
-			
-				<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
-			</header><!-- #masthead -->
+				<?php get_template_part( 'template-parts/content', 'offcanvas' ); ?>
+				
+				<header class="site-header" role="banner" data-sticky data-margin-top="0" data-sticky-on="small">
+				
+					<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
+				</header><!-- #masthead -->
+			</div>
 			
 			<div class="off-canvas-wrapper">
 				<div class="off-canvas-content" data-off-canvas-content>

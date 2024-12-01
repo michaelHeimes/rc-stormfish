@@ -1,0 +1,16 @@
+.video-image-background-logo-copy-cta {
+	padding-top: clamp(7.175rem, 5.857rem + 5.857vw, 10.25rem);
+	padding-bottom: clamp(4.2rem, 3.429rem + 3.429vw, 6rem);
+	.inner {
+		border: 1px solid $color-utra-blue;
+		background: rgba($color-storm-grey, .9);
+		backdrop-filter: blur(2px);
+		padding: 0 7%;
+		.grid-x {
+			.cell {
+				padding-top: clamp(3.15rem, 2.571rem + 2.571vw, 4.5rem);
+				padding-bottom: clamp(3.15rem, 2.571rem + 2.571vw, 4.5rem);
+			}
+		}
+	}
+}

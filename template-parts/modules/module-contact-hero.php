@@ -19,9 +19,11 @@ $large_title = get_sub_field('large_title') ?? null;
             <?php if( !empty( $small_title ) || !empty( $large_title ) ):?>
                 <div class="cell small-12 medium-10 large-8">
                     <?php if( !empty( $small_title ) ):?>
-                        <h1 class="h4">
-                            <?=esc_html( $small_title );?>
-                        </h1>
+                        <div class="eyebrow grid-x align-middle">
+                            <h1 class="h4 grid-x text-nowrap align-middle">
+                                <?=esc_html( $small_title );?><span></span>
+                            </h1>
+                        </div>
                     <?php endif;?>
                     <?php if( !empty( $large_title ) ):?>
                         <h2 class="h1 display">

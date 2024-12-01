@@ -393,8 +393,8 @@
                 },
                 "layout_673299e97d588": {
                     "key": "layout_673299e97d588",
-                    "name": "text_with_small_title",
-                    "label": "Text with Small Title",
+                    "name": "titles_left_copy_right",
+                    "label": "Title(s) Left, Copy Right",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -755,5 +755,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732908401
+    "modified": 1733004778
 }

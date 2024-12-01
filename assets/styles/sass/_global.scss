@@ -21,6 +21,9 @@ button,
 	svg {
 		margin-left: .6em;
 	}
+	&.no-margin {
+		margin: 0;
+	}
 }
 
 .entry-content section:first-child .module-spacing {
@@ -34,6 +37,7 @@ button,
 }
 
 .eyebrow {
+	opacity: 0;
 	> * {
 		width: 100%;
 	}
@@ -43,6 +47,7 @@ button,
 		height: 1px;
 		background-color:  $color-clownfish-orange;
 		margin-left: rem-calc(18);
+		max-width: 0;
 	}
 }
 

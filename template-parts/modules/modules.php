@@ -16,8 +16,8 @@ if( have_rows('content_modules') ):
 			);
 		elseif( get_row_layout() == 'logos' ):
 			get_template_part('template-parts/modules/module', 'logos');
-		elseif( get_row_layout() == 'text_with_small_title' ):
-			get_template_part('template-parts/modules/module', 'text-with-small-title');
+		elseif( get_row_layout() == 'titles_left_copy_right' ):
+			get_template_part('template-parts/modules/module', 'titles-left-copy-right');
 		elseif( get_row_layout() == 'testimonials' ):
 			get_template_part('template-parts/modules/module', 'testimonials');
 		elseif( get_row_layout() == 'global_centered_cta' ):

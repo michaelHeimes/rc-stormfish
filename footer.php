@@ -79,7 +79,7 @@ $copyright_text = get_field('copyright_text', 'option') ?? null;
 		</div>  <!-- end .off-canvas-content -->
 							
 	</div> <!-- end .off-canvas-wrapper -->
-	<?php if( is_home() ):
+	<?php if( is_front_page() ):
 		$loading_screen_text = get_field('loading_screen_text', 'option') ?? null;	
 	?>
 	<div id="loading-screen" class="bg-ultra-blue">

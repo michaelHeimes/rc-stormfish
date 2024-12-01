@@ -2,13 +2,16 @@
 if(!defined('ABSPATH')) {
     exit;
 }
+$remove_bottom_border = get_sub_field('remove_bottom_border') ?? null;
 $row_index = $args['row_index'];
 $heading = get_field('services_heading', 'option') ?? null;
 $text = get_field('services_text', 'option') ?? null;
 $tabs = get_field('services_tabs', 'option') ?? null;
 ?>
 <?php if( !empty( $heading ) || !empty( $text ) || !empty( $tabs ) ):?>
-<section class="services module position-relative bg-ultra-blue">
+<section class="services module position-relative bg-ultra-blue
+<?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
+">
     <div class="grid-container">
         <?php if( !empty( $heading ) || !empty( $text ) ):?>
             <div class="header grid-x grid-padding-x">
@@ -39,7 +42,9 @@ $tabs = get_field('services_tabs', 'option') ?? null;
                             <li class="tabs-title<?php if( $i == 1 ) { echo ' is-active';}?>" data-accordion-item>
                                 <?php if( !empty( $title ) ):?>
                                     <a href="#<?=sanitize_title($title);?>" class="h3">
-                                        <svg width="0" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m.5 18 15-9-15-9v7l3.41 2L.5 11.026V18Z" fill="#FF8E2E"/></svg>
+                                        <span>
+                                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m.5 18 15-9-15-9v7l3.41 2L.5 11.026V18Z" fill="#FF8E2E"/></svg>
+                                        </span>
                                         <?=esc_html( $title  );?>
                                     </a>
                                 <?php endif;?>

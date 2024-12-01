@@ -1,34 +1,32 @@
-header.site-header {
+#header-wrap {
 	position: fixed;
 	width: 100%;
 	z-index: 5555;
 	top: 29px;
+}
+header.site-header {
+
 	//transition: transform .5s ease;
 	.top-bar-wrap {
 		position: relative;
 		z-index: 555;
+	}
+	.top-bar-left {
+		flex: 0 1 auto;
 	}
 	#top-bar-menu {
 		border-radius: 3px;
 		background-color: rgba($white, 0.10);
 		backdrop-filter: blur(4px);
 		position: relative;
-		padding: 16.5px 34px;
+		padding: 16.5px;
 		max-height: 81px;
 		max-width: calc(100% - 2px);
 		transform: translate(1px, 1px);
 		transition: backdrop-filter .2s ease .65s, background-color .2s ease .65s;
-		// &:before {
-		// 	content: '';
-		// 	display: block;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	width: 100%;
-		// 	height: 100%;
-		// 	border: 1px solid $white;
-		// 	border-radius: 3px;
-		// }
+		@include breakpoint(medium) {
+			padding: 16.5px 34px;
+		}
 		li.logo {
 			transition: opacity .2s ease .65s;
 			@include breakpoint(medium) {
@@ -40,6 +38,9 @@ header.site-header {
 			a {
 				padding: 0;
 			}			
+		}
+		&.no-blur {
+			backdrop-filter: blur(0);
 		}
 			
 		#main-nav {
@@ -72,9 +73,12 @@ header.site-header {
 					    top: 31px;
 				    } 
 			    }
-				
+				&:hover {
+					span {
+						background-color: $color-clownfish-orange;
+					}
+				}
 		    }
-		    
 		}
 	
 	}
@@ -82,13 +86,13 @@ header.site-header {
 }
 
 #off-canvas {
-	position: fixed;
+	position: absolute;
 	z-index: 555;
-	top: 29px;
+	top: 0;
 	bottom: 29px;
-	bottom: calc(100% - 112px);
-	left: 22px;
-	right: 22px;
+	bottom: calc(100% - 83px);
+	left: calc($smallGutter * .5);
+	right: calc($smallGutter * .5);
 	transition: .2s ease;
 	&:before {
 		content: '';
@@ -114,6 +118,10 @@ header.site-header {
 		border-radius: 3px;
 		transition: backdrop-filter .2s ease .65s, background-color .2s ease .65s;
 	}
+	@include breakpoint(medium) {
+		left: calc($mediumGutter * .5);
+		right: calc($mediumGutter * .5);	
+	}
 	.inner {
 		opacity: 0;
 		overflow: hidden;
@@ -124,7 +132,6 @@ header.site-header {
 		z-index: 1;
 		top: 1px;
 		left: 1px;
-		height: calc(100% - 2px);
 		&:before {
 			content: '';
 			display: block;
@@ -134,21 +141,42 @@ header.site-header {
 			bottom: 1px;
 			right: 0;
 		}
+		@include breakpoint(medium) {
+			height: calc(100% - 2px);
+		}	
 	}
 	.menu-wrap {
+		overflow: auto;
 		position: relative;
 		z-index: 1;
 		top: 1px;
 		right: 1px;
-		height: calc(100% - 2px);
 		border-left: 1px solid $white;
 		@extend .h1;
+		height: calc(100% - 2px);
+		@include breakpoint(small down) {
+			padding-top: 4rem;
+			width: calc(100% - 2px);
+			left: 1px;
+			a.logo-link {
+				display: block;
+				padding: 2rem 5rem 1rem;
+			}
+		}
 		svg#nav-pixel-mask {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
+		}
+		ul#main-nav {
+			display: flex;
+			height: auto;
+			@include breakpoint(medium) {
+				padding: 3.5rem 0;
+				height: 100%;
+			}
 		}
 		li {
 			position: relative;
@@ -159,6 +187,27 @@ header.site-header {
 				display: block;
 				width: 100%;
 				padding: 0.52em 0;
+				transition: color .25s ease;
+				span {
+					display: inline-block;
+					position: relative;
+					&:before {
+						opacity: 0;
+						display: block;
+						position: absolute;
+						content: url('data:image/svg+xml,<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m.5 18 15-9-15-9v7l3.41 2L.5 11.026V18Z" fill="%23FF8E2E"/></svg>');
+						line-height: 0;
+						top: .2em;
+						transform: translateX(-22px);
+						transition: opacity .25s ease;
+					}
+				}
+				&:hover {
+					color: $color-clownfish-orange;
+					span:before {
+						opacity: 1;
+					}
+				}
 			}
 			&:not(:last-child) {
 				a {
@@ -196,7 +245,7 @@ header.site-header {
 		&:after {
 			background-color: rgba(0, 0, 0, 0.70);
 			backdrop-filter: blur(4px);	
-			transition: backdrop-filter .2s ease, background-color .2s ease;
+			transition: backdrop-filter .25s ease, background-color .25s ease;
 		}
 	}
 }

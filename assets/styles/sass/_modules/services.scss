@@ -1,0 +1,33 @@
+.services {
+	padding-top: clamp(5.425rem, 4.429rem + 4.429vw, 7.75rem);
+	padding-bottom: clamp(4.025rem, 3.286rem + 3.286vw, 5.75rem);
+	.header {
+		padding-bottom: clamp(3.15rem, 2.571rem + 2.571vw, 4.5rem);
+	}
+	.tabs-title,
+	.accordion-item {
+		a {
+			display: flex;
+		}
+		span {
+			display: inline-block;
+			position: relative;
+			width: 100%;
+			will-change: max-width;
+			max-width: 0;
+			overflow: hidden;
+			transition: max-width .3s ease;
+			svg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 19px;
+			}
+		}	
+		&.is-active {
+			span {
+				max-width: 44px;
+			}
+		}
+	}
+}

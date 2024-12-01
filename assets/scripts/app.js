@@ -131,27 +131,76 @@
     
     // Custom Functions
     
+    _app.orange_text_flyby = function() {
+        const orangeTextFlybys = document.querySelectorAll('.orange-text-with-flyby-animation');
+        
+        if( orangeTextFlybys.length < 1 ) return;
+        
+        orangeTextFlybys.forEach(orangeTextFlyby => {
+            const text =  orangeTextFlyby.querySelectorAll('a,p,ul,h1,h2,h3,h4,h5,h6');
+            const screenWidth = window.innerWidth;
+            const fishDuration = screenWidth * .0025;
+            const fish = orangeTextFlyby.querySelector('.fish-wrap');
+            const colorOverlap = "'-=" + (fishDuration * .25);
+  
+            let tl = gsap.timeline({
+                // yes, we can add it to an entire timeline!
+                scrollTrigger: {
+                    trigger: orangeTextFlyby,
+                    start: "top 90%", 
+                }
+            });
+           
+            tl.fromTo(
+                fish,
+                {
+                    x: "-75%",
+                    scale: 0.8,
+                },
+                {
+                    x: "300%",
+                    scale: 3,
+                    duration: fishDuration,
+                    ease: "power4.in",
+                }
+            )
+            .to(
+                text,
+                { 
+                    color: '#fff',
+                    duration: .5,
+                    ease: "power2.in",
+                },
+                colorOverlap
+            )
+            ;
+           
+        });
+        
+    }
+    
     _app.loading_screen = function() {
         const loadingScreen = document.getElementById('loading-screen');
 
         if( ! loadingScreen ) return;
-        
+    
         const screenWidth = window.innerWidth;
         const fishDuration = screenWidth * .0025;
         const blurOverlap = fishDuration * .5;
         const fish = loadingScreen.querySelector('.fish-wrap');
-        const fishWidth = fish.offsetWidth;
         const headline = loadingScreen.querySelector('.h1');
         const firstSection = document.querySelector('main section');
         const allSections = document.querySelectorAll('main section');
         const notFirstSections = Array.from(allSections).filter(section => section !== firstSection);
         const firstSectionContent = firstSection.querySelector('div');
-        const offCanvas = document.querySelector('.off-canvas');
-        const header = document.querySelector('.site-header');
+        const header = document.getElementById('header-wrap');
+        const topBar = header.querySelector('.top-bar');
         const body = document.querySelector('body');
         body.style.overflow = 'hidden';
         
         const tl = gsap.timeline();
+        
+        topBar.classList.add('no-blur');
         
         tl.fromTo(
             fish,
@@ -163,7 +212,7 @@
                 x: "300%",
                 scale: 3,
                 duration: fishDuration,
-                ease: "power4.in",
+                ease: "expo.in",
             }
         );
         
@@ -246,20 +295,6 @@
             "-=.2"
         )
         .fromTo(
-            offCanvas,
-            { 
-                y: -30,
-                opacity: 0 
-            },
-            {
-                y: 0,
-                opacity: 1,
-                duration: .5,
-                ease: "power1.out",
-            },
-            "-=.45"
-        )
-        .fromTo(
             header,
             { 
                 y: -30,
@@ -273,22 +308,29 @@
             },
             "-=.30"
         )
+        .to(
+            topBar,
+            { 
+                backdropFilter: "blur(4px)",
+                duration: .5,
+                ease: "power4.out",
+            },
+            "-=.7"
+        )
         .fromTo(
            notFirstSections,
             { opacity: 0 },
             {
                 opacity: 1,
-                duration: .4,
+                duration: .7,
                 ease: "power4.out",
             },
+            "-=.30"
         )
         .to(
             body,
             { overflow: 'auto' },
-        )
-        ;
-
-          
+        );
        
     }
     
@@ -305,14 +347,14 @@
                 offCanvas.setAttribute('aria-hidden', 'true');
                 
                 gsap.to(offCanvasInner, { opacity: 0, duration: 0.2 });
-                gsap.to(offCanvas, { bottom: 'calc(100% - 112px)', duration: 0.5, ease: 'circ.in' });
+                gsap.to(offCanvas, { bottom: 'calc(100% - 83px)', duration: 0.5, ease: 'circ.in' });
                 
             } else {
                 document.body.classList.add('js-nav-shown');
                 menuToggle.setAttribute('aria-expanded', 'true');
                 offCanvas.setAttribute('aria-hidden', 'false');
                 
-                gsap.to(offCanvas, { bottom: '29px', duration: 0.5, ease: 'circ.in' });
+                gsap.to(offCanvas, { bottom: 'calc(-100vh + 140px)', duration: 0.5, ease: 'circ.in' });
                 gsap.to(offCanvasInner, { opacity: 1, duration: 0.2, delay: 0.65 });
             }
         };
@@ -330,10 +372,81 @@
         });
     };
     
+    _app.playLoopingVidInView = async function() {
+        const videos = document.querySelectorAll('.play-in-view');
+        
+        if(videos.length < 1) { return; };
+        
+        gsap.registerPlugin(ScrollTrigger) 
+        
+        videos.forEach(video => {
+            // Create a ScrollTrigger for each video
+            ScrollTrigger.create({
+                trigger: video,
+                start: "top 100%", 
+                end: "bottom 0%",
+                onEnter: () => {
+                    // console.log('Playing video:', video);
+                    video.play();
+                },
+                onLeave: () => video.pause(),
+                onEnterBack: () => video.play(),
+                onLeaveBack: () => video.pause()
+            });
+        });
+      
+    }
+    
+    _app.eyebrows = function() {
+        const eyebrows = document.querySelectorAll('.eyebrow');
+        
+        eyebrows.forEach(eyebrow => {
+            
+            const pipe = eyebrow.querySelector('span');
+            
+            let tl = gsap.timeline({
+                // yes, we can add it to an entire timeline!
+                scrollTrigger: {
+                    trigger: eyebrow,
+                    start: "top bottom-=200", 
+                }
+            });
+            
+            tl.fromTo(
+                eyebrow,
+                {
+                    y: "30",
+                    opacity: 0,
+                },
+                {
+                    y: "0",
+                    opacity: 1,
+                    duration: .8,
+                    ease: "power2.out",
+                }
+            )
+            .fromTo(
+                pipe,
+                { 
+                    maxWidth: "0",
+                },
+                {
+                    maxWidth: 100,
+                    duration: 1,
+                    ease: "circ.out",
+                },
+                "-=0.05"
+            );
+            
+        });
+        
+    }
+    
     _app.testimonials_slider = function() {
         const testimonialsSliders = document.querySelectorAll('.testimonials.module .slider-testimonials');
         
-        testimonialsSliders.forEach(function(slider) {
+        testimonialsSliders.forEach((slider) => {
+            
             const prev = slider.parentElement.parentElement.querySelector('.swiper-button-prev');
             const next = slider.parentElement.parentElement.querySelector('.swiper-button-next');
             new Swiper(slider, {
@@ -356,17 +469,15 @@
         const sections = document.querySelectorAll('.heading-left-copy-right-over-fixed-background-image');
 
         function adjustBgHeight() {
-          sections.forEach((section) => {
-            const bgElement = section.querySelector('.bg');
-            if (!bgElement) return; // Skip if no `.bg` element
-        
-            // Find all `.section-row` elements in the section and determine the tallest one
-            const sectionRows = Array.from(section.querySelectorAll('.section-row'));
-            const tallestRowHeight = Math.max(...sectionRows.map(row => row.offsetHeight));
-        
-            // Set the `.bg` height to the tallest `.section-row` height
-            bgElement.style.height = `${tallestRowHeight}px`;
-          });
+            sections.forEach((section) => {
+                const bgElement = section.querySelector('.bg');
+                if (!bgElement) return;
+            
+                const sectionRows = Array.from(section.querySelectorAll('.section-row'));
+                const tallestRowHeight = Math.max(...sectionRows.map(row => row.offsetHeight));
+            
+                bgElement.style.height = `${tallestRowHeight}px`;
+            });
         }
         adjustBgHeight();
         window.addEventListener('resize', adjustBgHeight);
@@ -388,6 +499,83 @@
         });
 
     }
+    
+    _app.parallax_scrolling = function() {
+        
+        const parallaxSections = document.querySelectorAll('.parallax-section');
+        
+        if( parallaxSections.length < 1 ) return;
+        
+        parallaxSections.forEach((section) => {
+
+          const parallax1 = section.querySelector('.parallax-1');
+          const parallax2 = section.querySelector('.parallax-2');
+        
+          if (parallax1 || parallax2) {
+              
+            const computedStyle = window.getComputedStyle(section);
+            const topPadding = parseFloat(computedStyle.paddingTop);
+            const bottomPadding = parseFloat(computedStyle.paddingBottom);
+            
+            const p1Offset = topPadding * 1;
+            const p2Offset = bottomPadding  * .8;
+                        
+            if (parallax1) {
+                gsap.to(parallax1, {
+                    y: p1Offset,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1,
+                        ease: "power2.inOut",
+                    },
+                });
+            }
+            
+            if (parallax2) {
+                gsap.to(parallax2, {
+                    y: -p2Offset,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1,
+                        ease: "power2.inOut",
+                    },
+                });
+            }
+          }
+        });
+    }
+    
+    _app.contact_hero = function() {
+        const contactHeros = document.querySelectorAll('.contact-hero');
+        
+        if( contactHeros.length < 1 ) return;
+        
+        contactHeros.forEach((hero) => {
+            const img = hero.querySelector('img.img-fill');
+            
+            if(img) {
+                gsap.to(img, {
+                    scale: 1.5,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 5,
+                        ease: "power2.inOut",
+                    },
+                });
+            }
+            
+        });
+        
+    }
             
     _app.init = function() {
         
@@ -400,14 +588,20 @@
         // Custom Functions
         _app.loading_screen();
         _app.mobile_takover_nav();
+        _app.eyebrows();
         _app.testimonials_slider();
+        _app.playLoopingVidInView();
+        _app.orange_text_flyby();
         _app.heading_text_sticky_bg();
+        _app.parallax_scrolling();
+        _app.contact_hero();
     }
     
     
     // initialize functions on load
     $(function() {
         _app.init();
+        document.body.classList.add('js-loaded');
     });
 	
 	

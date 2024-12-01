@@ -7,21 +7,29 @@
  $menu_logo = get_field('menu_logo', 'option') ?? null;
 ?>
 
-<div class="off-canvas position-right position-relative" id="off-canvas" aria-hidden="true">
-
+<div class="off-canvas position-right position-relative has-bg" id="off-canvas" aria-hidden="true">
+	
 	<div class="inner h-100">
-		<div class="grid-x h-100">
-			<div class="logo-wrap small-6 grid-x align-middle align-center  position-relative">
+		<div class="grid-x flex-dir-column h-100">
+			<div class="logo-wrap small-12 medium-6 grid-x align-middle align-center  position-relative show-for-medium">
 				<?php 
 				if( $menu_logo ) :
 					$size = 'full';
 					$image_id =  $menu_logo['id'] ?? null;?>
-					<a class="img-wrap position-relative" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<a class="logo-link position-relative" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
 					</a>
 				<?php endif;?>
 			</div>
-			<div class="menu-wrap small-6 bg-ultra-blue position-relative" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/images/menu-pixels-mask.png); background-size: cover;">
+			<div class="menu-wrap small-12 medium-6 bg-ultra-blue position-relative" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/images/menu-pixels-mask.png); background-size: cover;">
+				<?php 
+				if( $menu_logo ) :
+					$size = 'full';
+					$image_id =  $menu_logo['id'] ?? null;?>
+					<a class="logo-link position-relative hide-for-medium" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
+					</a>
+				<?php endif;?>
 				<?php trailhead_top_nav();?>
 			</div>
 		</div>
