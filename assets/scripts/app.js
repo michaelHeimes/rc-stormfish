@@ -520,7 +520,7 @@
                 // yes, we can add it to an entire timeline!
                 scrollTrigger: {
                     trigger: slider,
-                    start: "top bottom-=200", 
+                    start: "top bottom-=100", 
                 }
             });
             
@@ -762,11 +762,74 @@
                         ease: "power2.inOut",
                     },
                 });
-            }
-            
+            }            
         });
-        
     }
+    
+_app.cascading_pixels = function() {
+const pixelGraphics = document.querySelectorAll('.pixels-graphic');
+
+pixelGraphics.forEach((graphic) => {
+    const trigger = graphic.parentElement.parentElement;
+    const pixelRows = graphic.querySelectorAll('.row');
+    const triggerWidth = trigger.offsetWidth;
+
+    // Create a master timeline for all rows in the graphic
+    const masterTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: trigger,
+            start: "top bottom-=200",
+        },
+    });
+
+    pixelRows.forEach((row, index) => {
+        masterTl.fromTo(
+            row,
+            {
+                x: `-${triggerWidth}px`,
+                opacity: 0,
+            },
+            {
+                x: "0",
+                opacity: 1,
+                duration: index * 0.025,
+                ease: "circ.out",
+            },
+            index * 0.03,
+        );
+    });
+
+    // Add flicker effect after all rows are animated
+    masterTl.add(() => {
+        setTimeout(() => {
+            const paths = graphic.querySelectorAll('path');
+            paths.forEach((path) => {
+                flickerPath(path);
+            });
+        }, "1000");
+    });
+});
+
+function flickerPath(path) {
+    const randomDuration = () => Math.random() * 0.9 + 0.1;
+    const flicker = () => {
+        gsap.fromTo(
+            path,
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: randomDuration(),
+                onComplete: flicker, // Repeat the flicker effect
+                repeatDelay: randomDuration(),
+            }
+        );
+    };
+    flicker();
+}
+
+
+    };
+
             
     _app.init = function() {
         
@@ -787,6 +850,7 @@
         _app.parallax_scrolling();
         _app.contact_hero();
         _app.playLoopingVidInView();
+        _app.cascading_pixels();
     }
     
     
