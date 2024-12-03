@@ -631,7 +631,6 @@
             
             const sectionRows = section.querySelectorAll('.section-row');
             sectionRows.forEach(row => {
-                console.log(row);
                 
                const mobilePipe = row.querySelector('.pipe.mobile span');
                const desktopPipe = row.querySelector('.pipe.desktop span');
