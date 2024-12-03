@@ -16,7 +16,9 @@ $image = get_sub_field('image') ?? null;
     <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
     
 ">
-    <div class="position-relative img-stop">
+    <?php $index = get_row_index(); if( $index == 1 ):?>
+        <div class="header-spacer"></div>
+    <?php endif;?>    <div class="position-relative img-stop">
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
                 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) ):?>

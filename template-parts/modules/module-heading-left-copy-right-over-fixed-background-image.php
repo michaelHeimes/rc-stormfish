@@ -10,7 +10,7 @@ $rows = get_sub_field('rows') ?? null;
 <section class="heading-left-copy-right-over-fixed-background-image sticky-bg-group has-object-fit-img module has-bg">
 	<?php 
 	if( $background_image ) {
-		$size = 'full';
+		$size = 'full-width-hero';
 		$image_id =  $background_image['id'] ?? null;
 		echo '<div class="bg">';
 		echo '<div class="sticky-bg has-object-fit">';
@@ -25,6 +25,9 @@ $rows = get_sub_field('rows') ?? null;
 		$heading = $row['heading'] ?? null;
 		$copy = $row['copy'] ?? null;
 	?>
+		<?php $index = get_row_index(); if( $index == 1 ):?>
+			<div class="header-spacer"></div>
+		<?php endif;?>
 		<div class="section-row module module-padding position-relative
 		<?php if( $i == $count && !$remove_bottom_border ) { echo ' bottom-border'; };?>
 		">

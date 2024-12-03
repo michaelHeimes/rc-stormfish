@@ -10,6 +10,9 @@ $logos = get_sub_field('logos') ?? null;
 <section class="logos module position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+    <?php $index = get_row_index(); if( $index == 1 ):?>
+        <div class="header-spacer"></div>
+    <?php endif;?>
     <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x align-middle">
             <?php if( !empty( $heading ) || !empty( $logos ) ):?>

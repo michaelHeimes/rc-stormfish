@@ -11,6 +11,9 @@ $global_cta_button_link = get_field('global_cta_button_link', 'option') ?? null;
 <section class="global-centered-cta module position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+	<?php $index = get_row_index(); if( $index == 1 ):?>
+		<div class="header-spacer"></div>
+	<?php endif;?>
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-middle align-center text-center">
 			<div class="cell small-12 medium-10 tablet-9 large-8 xlarge-7 has-bg">

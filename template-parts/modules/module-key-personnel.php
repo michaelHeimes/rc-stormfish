@@ -10,6 +10,9 @@ $personnel_cards = get_sub_field('personnel_cards') ?? null;
 <section class="key-personnel module module-padding position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+	<?php $index = get_row_index(); if( $index == 1 ):?>
+		<div class="header-spacer"></div>
+	<?php endif;?>
 	<div class="grid-container position-relative">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell small-10 medium-12 large-10 xlarge-9">
@@ -28,7 +31,7 @@ $personnel_cards = get_sub_field('personnel_cards') ?? null;
 							$image = get_field('photo') ?? null;
 							$title = get_field('title') ?? null;
 							
-							$size = 'full';
+							$size = 'personnel';
 							if( $image ) :?>
 								<div class="img-wrap cell small-12 medium-4 large-5">
 									<?=wp_get_attachment_image( $image['id'], $size );?>

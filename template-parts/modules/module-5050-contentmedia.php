@@ -10,6 +10,9 @@ $right_half = get_sub_field('right_half') ?? null;
 <section class="content-50-50 module parallax-section has-object-fit-img position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+    <?php $index = get_row_index(); if( $index == 1 ):?>
+        <div class="header-spacer"></div>
+    <?php endif;?>
     <div class="grid-container position-relative">
         <div class="grid-x grid-padding-x align-justify<?php if( $reverse_columns_for_mobile == true ) { echo ' flex-dir-column-reverse tablet-flex-dir-row'; };?>">
             <?php if( !empty( $left_half ) ) {

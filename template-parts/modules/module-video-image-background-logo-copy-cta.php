@@ -15,6 +15,9 @@ $button_link = get_sub_field('button_link') ?? null;
 <section class="video-image-background-logo-copy-cta module parallax-section has-object-fit-img position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+	<?php $index = get_row_index(); if( $index == 1 ):?>
+		<div class="header-spacer"></div>
+	<?php endif;?>
 	<?php if( $background_type == 'video' && !empty( $background_video ) ) :?>
 		<video class="play-in-view img-fill" muted loop playsinline>
 			<source src="<?=esc_url($background_video['url']);?>" type="video/mp4">
@@ -23,7 +26,7 @@ $button_link = get_sub_field('button_link') ?? null;
 	<?php endif;?>
 	<?php 
 	if( $background_image && $background_type !== 'video' ) {
-		$size = 'full';
+		$size = 'full-width-hero';
 		$image_id =  $background_image['id'] ?? null;
 		echo wp_get_attachment_image( $image_id, $size, false, array( 'class' => 'img-fill' ) );
 	}?>

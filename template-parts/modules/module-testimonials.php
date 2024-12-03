@@ -10,6 +10,9 @@ $testimonials = get_sub_field('testimonials') ?? null;
 <section class="testimonials module has-animated-pipe position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+    <?php $index = get_row_index(); if( $index == 1 ):?>
+        <div class="header-spacer"></div>
+    <?php endif;?>
     <div class="grid-container position-relative">
         <div class="inner">
             <div class="grid-x grid-padding-x">

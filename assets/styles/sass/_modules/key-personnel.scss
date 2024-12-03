@@ -1,6 +1,6 @@
 .key-personnel {
-	padding-top: clamp(4.375rem, 3.036rem + 3.571vw, 6.25rem);
-	padding-bottom: clamp(1.75rem, 1.214rem + 1.429vw, 2.5rem);
+	padding-top: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+	padding-bottom: clamp(1.75rem, 1.429rem + 1.429vw, 2.5rem);
 	h2 {
 		margin-bottom: 1.62em;
 	}
@@ -9,7 +9,7 @@
 		border-radius: 5px;
 		background-color: rgba($white, .05);
 		padding: 10% 2%;
-		margin: clamp(2.8rem, 1.943rem + 2.286vw, 4rem) 0;
+		margin: clamp(2.8rem, 2.286rem + 2.286vw, 4rem) 0;
 		opacity: 0;
 		transform: translateY(50px);
 		padding: 3rem 2rem 1.25rem;

@@ -10,6 +10,9 @@ $medium_text = get_sub_field('medium_text') ?? null;
 <section class="orange-text-with-flyby-animation module has-animated-pipe module-padding position-relative bg-ultra-blue overflow-hidden
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+	<?php $index = get_row_index(); if( $index == 1 ):?>
+		<div class="header-spacer"></div>
+	<?php endif;?>
 	<div class="fish-wrap grid-x align-middle">
 		<img src="<?=get_template_directory_uri();?>/assets/images/fish-white.png"/>
 	</div>

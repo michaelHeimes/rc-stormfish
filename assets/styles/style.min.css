@@ -6877,6 +6877,10 @@ body .gform-theme.gform-theme--framework.gform_wrapper .gform_footer button.no-m
   border-bottom: 1px solid #fff;
 }
 
+.header-spacer {
+  padding-top: 7.5rem;
+}
+
 .eyebrow {
   opacity: 0;
 }
@@ -7864,7 +7868,7 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span {
 }
 
 footer#colophon {
-  padding-top: clamp(3.5rem, 2.429rem + 2.857vw, 5rem);
+  padding-top: clamp(3.5rem, 2.857rem + 2.857vw, 5rem);
   padding-bottom: 0.4rem;
 }
 footer#colophon p,
@@ -8021,16 +8025,16 @@ footer#colophon .site-info .right {
 
 .contact-hero .module-padding {
   min-height: 580px;
-  padding-top: clamp(2.844rem, 2.321rem + 2.321vw, 4.063rem);
-  padding-bottom: clamp(2.844rem, 2.321rem + 2.321vw, 4.063rem);
+  padding-top: clamp(2.844rem, 2.322rem + 2.322vw, 4.063rem);
+  padding-bottom: clamp(2.844rem, 2.322rem + 2.322vw, 4.063rem);
 }
 .contact-hero .eyebrow h1 {
   margin-bottom: 2em;
 }
 
 .testimonials.module {
-  padding-top: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
-  padding-bottom: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
+  padding-top: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
+  padding-bottom: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
 }
 .testimonials.module h2 {
   margin-bottom: 2.5rem;
@@ -8115,8 +8119,8 @@ footer#colophon .site-info .right {
 }
 
 .heading-left-copy-right-over-fixed-background-image .section-row {
-  padding-top: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
-  padding-bottom: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
+  padding-top: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
+  padding-bottom: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
 }
 .heading-left-copy-right-over-fixed-background-image .pin-spacer {
   height: 100% !important;
@@ -8298,7 +8302,7 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 
 .orange-text-with-flyby-animation {
   padding-top: clamp(5.425rem, 4.429rem + 4.429vw, 7.75rem);
-  padding-bottom: clamp(4.244rem, 3.464rem + 3.464vw, 6.063rem);
+  padding-bottom: clamp(4.244rem, 3.464rem + 3.465vw, 6.063rem);
   color: #EB7200;
 }
 .orange-text-with-flyby-animation .fish-wrap {
@@ -8325,11 +8329,17 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 }
 
 .titles-left-copy-right {
-  padding-top: clamp(4.287rem, 3.5rem + 3.5vw, 6.125rem);
-  padding-bottom: clamp(3.587rem, 2.489rem + 2.929vw, 5.125rem);
+  padding-top: clamp(4.287rem, 3.499rem + 3.501vw, 6.125rem);
+  padding-bottom: clamp(4.287rem, 3.499rem + 3.501vw, 6.125rem);
 }
 .titles-left-copy-right .eyebrow h2 {
   margin-bottom: 2.2em;
+}
+.titles-left-copy-right .bg svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .services {
@@ -8369,8 +8379,8 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 }
 
 .logos.module {
-  padding-top: clamp(3.544rem, 2.459rem + 2.893vw, 5.063rem);
-  padding-bottom: clamp(3.544rem, 2.459rem + 2.893vw, 5.063rem);
+  padding-top: clamp(3.544rem, 2.893rem + 2.893vw, 5.063rem);
+  padding-bottom: clamp(3.544rem, 2.893rem + 2.893vw, 5.063rem);
 }
 .logos.module .grid-x > .cell {
   margin: 15px 0;
@@ -8394,8 +8404,8 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
   }
 }
 .content-50-50 {
-  padding-top: clamp(4.375rem, 3.036rem + 3.571vw, 6.25rem);
-  padding-bottom: clamp(4.375rem, 3.036rem + 3.571vw, 6.25rem);
+  padding-top: clamp(4.37rem, 3.564rem + 3.581vw, 6.25rem);
+  padding-bottom: clamp(4.37rem, 3.564rem + 3.581vw, 6.25rem);
 }
 @media print, screen and (max-width: 56.24875em) {
   .content-50-50 .img-wrap {
@@ -8404,8 +8414,8 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 }
 
 .key-personnel {
-  padding-top: clamp(4.375rem, 3.036rem + 3.571vw, 6.25rem);
-  padding-bottom: clamp(1.75rem, 1.214rem + 1.429vw, 2.5rem);
+  padding-top: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+  padding-bottom: clamp(1.75rem, 1.429rem + 1.429vw, 2.5rem);
 }
 .key-personnel h2 {
   margin-bottom: 1.62em;
@@ -8415,7 +8425,7 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.05);
   padding: 10% 2%;
-  margin: clamp(2.8rem, 1.943rem + 2.286vw, 4rem) 0;
+  margin: clamp(2.8rem, 2.286rem + 2.286vw, 4rem) 0;
   opacity: 0;
   -webkit-transform: translateY(50px);
           transform: translateY(50px);
@@ -8456,8 +8466,8 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 }
 
 .global-centered-cta .module-spacing {
-  padding-top: clamp(8.225rem, 5.707rem + 6.714vw, 11.75rem);
-  padding-bottom: clamp(8.225rem, 5.707rem + 6.714vw, 11.75rem);
+  padding-top: clamp(8.225rem, 6.714rem + 6.714vw, 11.75rem);
+  padding-bottom: clamp(8.225rem, 6.714rem + 6.714vw, 11.75rem);
 }
 .global-centered-cta h2 {
   margin-bottom: 0.66em;

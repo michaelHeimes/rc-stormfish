@@ -11,6 +11,9 @@ $copy = get_sub_field('copy') ?? null;
 <section class="titles-left-copy-right parallax-section module position-relative position-relative bg-ultra-blue layout-<?php if( empty($eyebrow_title) ) { echo 'no-eyebrow has-bg'; };?>
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>    
 ">
+    <?php $index = get_row_index(); if( $index == 1 ):?>
+        <div class="header-spacer"></div>
+    <?php endif;?>
     <?php if( empty($eyebrow_title) ):?>
         <div class="bg">
             <svg class="pixels-graphic" viewBox="0 0 1440 352" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -590,11 +593,7 @@ $copy = get_sub_field('copy') ?? null;
             <g class="row" style="opacity: 0;">
                 <path d="M1426.01 291.341L1421.39 286.716L1416.76 291.342L1421.39 295.967L1426.01 291.341Z" fill="#004767"/>
             </g>
-            
-            
-            
-            
-                
+
             </g>
             </mask>
             <g mask="url(#mask0_356_42863)">

@@ -12,6 +12,9 @@ $tabs = get_field('services_tabs', 'option') ?? null;
 <section class="services module position-relative bg-ultra-blue
 <?php if( !$remove_bottom_border ) { echo ' bottom-border'; };?>
 ">
+    <?php $index = get_row_index(); if( $index == 1 ):?>
+        <div class="header-spacer"></div>
+    <?php endif;?>
     <div class="grid-container">
         <?php if( !empty( $heading ) || !empty( $text ) ):?>
             <div class="header grid-x grid-padding-x">

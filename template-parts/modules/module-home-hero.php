@@ -13,7 +13,7 @@ $intro_text = get_sub_field('intro_text') ?? null;
 ">
     <?php 
     if( $background_image ) {
-        $size = 'full';
+        $size = 'full-width-hero';
         $image_id =  $background_image['id'] ?? null;
         echo wp_get_attachment_image( $image_id, $size, false, array( 'class' => 'img-fill' ) );
     }?>
