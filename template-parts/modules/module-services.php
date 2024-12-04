@@ -17,7 +17,7 @@ $tabs = get_field('services_tabs', 'option') ?? null;
     <?php endif;?>
     <div class="grid-container">
         <?php if( !empty( $heading ) || !empty( $text ) ):?>
-            <div class="header grid-x grid-padding-x">
+            <div class="header grid-x grid-padding-x fade-in-left">
                 <?php if( !empty( $heading ) || !empty( $text ) ):?>
                     <div class="cell small-12 medium-10 large-8">
                         <?php if( !empty( $heading ) ):?>
@@ -48,7 +48,7 @@ $tabs = get_field('services_tabs', 'option') ?? null;
                                         <span>
                                         <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m.5 18 15-9-15-9v7l3.41 2L.5 11.026V18Z" fill="#FF8E2E"/></svg>
                                         </span>
-                                        <?=esc_html( $title  );?>
+                                        <?=esc_html( $title );?>
                                     </a>
                                 <?php endif;?>
                             </li>
@@ -73,10 +73,10 @@ $tabs = get_field('services_tabs', 'option') ?? null;
                                             </div>
                                         <?php endif;?>
                                     </div>
-                                    <?php if( !empty( $heading ) || !empty( $text ) ):?>
+                                    <?php if( !empty( $title ) || !empty( $text ) ):?>
                                         <div class="text cell small-12 medium-6">
-                                            <?php if( !empty( $heading ) ):?>
-                                                <h3><?=esc_html( $heading );?></h3>
+                                            <?php if( !empty( $title ) ):?>
+                                                <h3><?=esc_html( $title );?></h3>
                                             <?php endif;?>
                                             <?php if( !empty( $text ) ):?>
                                                 <div><?=wp_kses_post( $text );?></div>

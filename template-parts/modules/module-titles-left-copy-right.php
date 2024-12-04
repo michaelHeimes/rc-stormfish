@@ -16,8 +16,8 @@ $copy = get_sub_field('copy') ?? null;
     <?php endif;?>
     <?php if( empty($eyebrow_title) ):?>
         <div class="bg">
-            <svg class="pixels-graphic" viewBox="0 0 1440 352" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.15">
+            <svg class="pixels-graphic" width="100%" height="352" viewBox="0 0 1440 352" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.30">
             <mask id="mask0_356_42863" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-765" y="-1039" width="2536" height="2536">
             <g clip-path="url(#clip0_356_42863)">
             

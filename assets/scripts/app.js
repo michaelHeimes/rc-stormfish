@@ -86,6 +86,9 @@
 // Swiper
 //@prepros-prepend vendor/swiper-bundle.js
 
+// JS Cookie
+//@prepros-prepend vendor/js.cookie.min.js
+
 // DOM Ready
 (function($) {
 	'use strict';
@@ -98,59 +101,23 @@
     }
 
     // Custom Functions
-    
-    _app.orange_text_flyby = function() {
-        const orangeTextFlybys = document.querySelectorAll('.orange-text-with-flyby-animation');
         
-        if( orangeTextFlybys.length < 1 ) return;
-        
-        orangeTextFlybys.forEach(orangeTextFlyby => {
-            const text =  orangeTextFlyby.querySelectorAll('a,p,ul,h1,h2,h3,h4,h5,h6');
-            const screenWidth = window.innerWidth;
-            const fishDuration = screenWidth * .0025;
-            const fish = orangeTextFlyby.querySelector('.fish-wrap');
-            const colorOverlap = "'-=" + (fishDuration * .25);
-  
-            let tl = gsap.timeline({
-                // yes, we can add it to an entire timeline!
-                scrollTrigger: {
-                    trigger: orangeTextFlyby,
-                    start: "top 90%", 
-                }
-            });
-           
-            tl.fromTo(
-                fish,
-                {
-                    x: "-75%",
-                    scale: 0.8,
-                },
-                {
-                    x: "300%",
-                    scale: 3,
-                    duration: fishDuration,
-                    ease: "power4.in",
-                }
-            )
-            .to(
-                text,
-                { 
-                    color: '#fff',
-                    duration: .5,
-                    ease: "power2.in",
-                },
-                colorOverlap
-            )
-            ;
-           
-        });
-        
-    }
-    
     _app.loading_screen = function() {
         const loadingScreen = document.getElementById('loading-screen');
 
         if( ! loadingScreen ) return;
+                
+        if( Cookies.get('skip-intro') == 'true' ) {
+            gsap.to(loadingScreen, { 
+                opacity: 0, 
+                duration: 0.4
+            });
+            gsap.to(loadingScreen, { 
+                display: 'none', 
+                delay: .41,
+            });
+            return;
+        }
     
         const screenWidth = window.innerWidth;
         const fishDuration = screenWidth * .0025;
@@ -181,7 +148,7 @@
                 scale: 3,
                 duration: fishDuration,
                 ease: "expo.in",
-            }
+            },
         );
         
         tl.fromTo(
@@ -210,7 +177,7 @@
                 duration: 0.3,
                 ease: "power1.out", 
             },
-            "+=3"
+            "+=1.5"
         )
         .to(
             headline,
@@ -283,7 +250,7 @@
                 duration: .5,
                 ease: "power4.out",
             },
-            "-=.7"
+            "-=1"
         )
         .fromTo(
            notFirstSections,
@@ -299,7 +266,63 @@
             body,
             { overflow: 'auto' },
         );
+
+        topBar.classList.remove('.no-blur');
+        
+        // Cookies.set('skip-intro', 'true');
        
+        if( ! document.body.classList.contains('logged-in') ) {
+            Cookies.set('skip-intro', 'true');
+        }
+       
+    }
+    
+    _app.orange_text_flyby = function() {
+        const orangeTextFlybys = document.querySelectorAll('.orange-text-with-flyby-animation');
+        
+        if( orangeTextFlybys.length < 1 ) return;
+        
+        orangeTextFlybys.forEach(orangeTextFlyby => {
+            const text =  orangeTextFlyby.querySelectorAll('a,p,ul,h1,h2,h3,h4,h5,h6');
+            const screenWidth = window.innerWidth;
+            const fishDuration = screenWidth * .0025;
+            const fish = orangeTextFlyby.querySelector('.fish-wrap');
+            const colorOverlap = "'-=" + (fishDuration * .25);
+    
+            let tl = gsap.timeline({
+                // yes, we can add it to an entire timeline!
+                scrollTrigger: {
+                    trigger: orangeTextFlyby,
+                    start: "top 90%", 
+                }
+            });
+           
+            tl.fromTo(
+                fish,
+                {
+                    x: "-75%",
+                    scale: 0.8,
+                },
+                {
+                    x: "300%",
+                    scale: 3,
+                    duration: fishDuration,
+                    ease: "power4.in",
+                }
+            )
+            .to(
+                text,
+                { 
+                    color: '#fff',
+                    duration: .5,
+                    ease: "power2.in",
+                },
+                colorOverlap
+            )
+            ;
+           
+        });
+        
     }
     
     _app.mobile_takover_nav = function() {
@@ -317,7 +340,10 @@
                 gsap.to(offCanvasInner, { opacity: 0, duration: 0.2 });
                 gsap.to(offCanvas, { bottom: 'calc(100% - 83px)', duration: 0.5, ease: 'circ.in' });
                 
+                pauseFlicker();
+                
             } else {
+                resumeFlicker();
                 document.body.classList.add('js-nav-shown');
                 menuToggle.setAttribute('aria-expanded', 'true');
                 offCanvas.setAttribute('aria-hidden', 'false');
@@ -338,6 +364,47 @@
                 navToggle();
             }
         });
+        
+        // pixel animation
+const paths = document.querySelectorAll('.menu-pixels-bg path');
+        
+        // Store references to animation instances
+        const flickerAnimations = [];
+        
+        if (paths.length > 0) {
+            const randomDuration = () => Math.random() * 0.9 + 0.1;
+        
+            paths.forEach(path => {
+                const flicker = gsap.fromTo(
+                    path,
+                    { opacity: 0 },
+                    {
+                        opacity: 1,
+                        duration: randomDuration(),
+                        repeat: -1, // Infinite repeats
+                        repeatDelay: randomDuration(),
+                        onStart: () => {
+                            path.style.visibility = 'visible'; // Ensure path is visible
+                        },
+                    }
+                );
+        
+                // Add animation instance to the array for control
+                flickerAnimations.push(flicker);
+            });
+        }
+        
+        // Function to pause all flicker animations
+        function pauseFlicker() {
+            flickerAnimations.forEach(animation => animation.pause());
+        }
+        
+        // Function to resume all flicker animations
+        function resumeFlicker() {
+            flickerAnimations.forEach(animation => animation.resume());
+        }
+        pauseFlicker();
+        
     };
     
     _app.playLoopingVidInView = async function() {
@@ -656,7 +723,7 @@
 
     }
     
-    _app.parallax_scrolling = function() {
+    _app.parallax_scrolling = async function() {
         
         const parallaxSections = document.querySelectorAll('.parallax-section');
         
@@ -678,6 +745,9 @@
                             
                 parallax1s.forEach((parallax1) => {
                     if (parallax1) {
+                        
+                        gsap.set(parallax1, {y: -p1Offset});
+                        
                         gsap.to(parallax1, {
                             y: p1Offset,
                             ease: 'none',
@@ -694,6 +764,9 @@
                 
                 parallax2s.forEach((parallax2) => {
                     if (parallax2) {
+                        
+                        gsap.set(parallax2, {y: p2Offset});
+                        
                         gsap.to(parallax2, {
                             y: -p2Offset,
                             ease: 'none',
@@ -752,44 +825,125 @@
         });
     }
     
-_app.cascading_pixels = function() {
-    const pixelGraphics = document.querySelectorAll('.pixels-graphic');
-    
-    if( pixelGraphics.length < 1 ) return;
-    
-    pixelGraphics.forEach((graphic) => {
-        const trigger = graphic.parentElement.parentElement;
-        const pixelRows = graphic.querySelectorAll('.row');
-        const triggerWidth = trigger.offsetWidth;
+    _app.cascading_pixels = function() {
+        const pixelGraphics = document.querySelectorAll('.pixels-graphic');
         
-        if( !graphic ) return;
-    
-        // Create a master timeline for all rows in the graphic
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: trigger,
-                start: "top bottom-=200",
-            },
+        if( pixelGraphics.length < 1 ) return;
+        
+        pixelGraphics.forEach((graphic) => {
+            const trigger = graphic.parentElement.parentElement;
+            const pixelRows = graphic.querySelectorAll('.row');
+            const triggerWidth = trigger.offsetWidth;
+            
+            if( !graphic ) return;
+        
+            // Create a master timeline for all rows in the graphic
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: trigger,
+                    start: "top bottom-=200",
+                },
+            });
+        
+            pixelRows.forEach((row, index) => {
+                tl.fromTo(
+                    row,
+                    {
+                        x: `-${triggerWidth}px`,
+                        opacity: 0,
+                    },
+                    {
+                        x: "0",
+                        opacity: 1,
+                        duration: index * 0.025,
+                        ease: "circ.out",
+                    },
+                    index * 0.03,
+                );
+            });
+            
         });
+    };
     
-        pixelRows.forEach((row, index) => {
-            tl.fromTo(
-                row,
-                {
-                    x: `-${triggerWidth}px`,
-                    opacity: 0,
-                },
-                {
-                    x: "0",
+    _app.fade_in = function() {
+        const fadeIns = document.querySelectorAll('.fade-in-top-center');
+        
+        if(  fadeIns.length < 1 ) return;
+        
+        fadeIns.forEach( fadeIn => {
+            
+            gsap.to(fadeIn, {
                     opacity: 1,
-                    duration: index * 0.025,
-                    ease: "circ.out",
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: fadeIn,
+                        start: "top center",
+                        ease: "power2.inOut",
+                    },
                 },
-                index * 0.03,
+    
             );
-        });    
-    });
-};
+            
+        });
+        
+    }
+    
+    _app.fade_in_left = function() {
+        const fadeInLefts = document.querySelectorAll('.fade-in-left');
+        
+        if(  fadeInLefts.length < 1 ) return;
+        
+        fadeInLefts.forEach( fadeInLeft => {
+            
+            gsap.to(fadeInLeft, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: fadeInLeft,
+                        start: "top bottom-=200",
+                        ease: "power2.inOut",
+                    },
+                },
+
+            );
+            
+        });
+        
+    }
+    
+    _app.stagger_fade_in_left = function() {
+        const staggerFadeInLefts = document.querySelectorAll('.stagger-fade-left');
+        
+        if(  staggerFadeInLefts.length < 1 ) return;
+        
+        staggerFadeInLefts.forEach( staggerFadeInLeft => {
+            
+            const trigger = staggerFadeInLeft;
+            const items = staggerFadeInLeft.querySelectorAll('.stagger-item');
+            
+            gsap.to(items, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                    stagger: {
+                        each: 0.2,
+                        overlap: 0.15,
+                    },
+                    scrollTrigger: {
+                        trigger: trigger,
+                        start: "top bottom-=200",
+                        ease: "power2.inOut",
+                    },
+                },
+            );
+
+        });
+        
+    }
 
             
     _app.init = function() {
@@ -809,6 +963,9 @@ _app.cascading_pixels = function() {
         _app.contact_hero();
         _app.playLoopingVidInView();
         _app.cascading_pixels();
+        _app.fade_in();
+        _app.fade_in_left();
+        _app.stagger_fade_in_left();
     }
     
     

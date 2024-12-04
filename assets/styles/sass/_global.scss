@@ -36,6 +36,23 @@ button,
 	}
 }
 
+.fade-in,
+.fade-in-top-center {
+	opacity: 0;
+}
+
+.fade-in-left {
+	opacity: 0;
+	transform: translateX(-70px);
+}
+
+.stagger-fade-left {
+	.stagger-item {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+}
+
 .header-spacer {
 	padding-top: rem-calc(120);
 }

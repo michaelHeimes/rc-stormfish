@@ -14,14 +14,14 @@
 	.large-text {
 		p {
 			line-height: .98;
-			font-size: clamp(2.25rem, 1.875rem + 1.667vw, 3.125rem);
+			font-size: clamp(1.969rem, 1.607rem + 1.607vw, 2.813rem);
 			margin-bottom: 0.68em;
 		}
 	}
 	.medium-text {
 		p {
 			line-height: 1.4;
-			font-size: clamp(1.531rem, 1.25rem + 1.25vw, 2.188rem);
+			font-size: clamp(1.378rem, 1.125rem + 1.125vw, 1.969rem);
 			&:not(:last-child):only-child {
 				margin-bottom: 0.85em;
 			}

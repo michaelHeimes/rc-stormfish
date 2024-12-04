@@ -6877,6 +6877,23 @@ body .gform-theme.gform-theme--framework.gform_wrapper .gform_footer button.no-m
   border-bottom: 1px solid #fff;
 }
 
+.fade-in,
+.fade-in-top-center {
+  opacity: 0;
+}
+
+.fade-in-left {
+  opacity: 0;
+  -webkit-transform: translateX(-70px);
+          transform: translateX(-70px);
+}
+
+.stagger-fade-left .stagger-item {
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+}
+
 .header-spacer {
   padding-top: 7.5rem;
 }
@@ -7768,18 +7785,21 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span {
     padding: 2rem 5rem 1rem;
   }
 }
-#off-canvas .menu-wrap svg#nav-pixel-mask {
+#off-canvas .menu-wrap svg.menu-pixels-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #off-canvas .menu-wrap ul#main-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: auto;
+  min-height: 100%;
+  overflow: auto;
 }
 @media print, screen and (min-width: 40em) {
   #off-canvas .menu-wrap ul#main-nav {
@@ -7831,8 +7851,8 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span {
 }
 
 .js-nav-shown header.site-header #top-bar-menu {
-  -webkit-backdrop-filter: blur(0);
-          backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0) !important;
+          backdrop-filter: blur(0) !important;
   background-color: transparent;
   -webkit-transition: background-color 0.2s ease, -webkit-backdrop-filter 0.2s ease;
   transition: background-color 0.2s ease, -webkit-backdrop-filter 0.2s ease;
@@ -8176,8 +8196,8 @@ footer#colophon .site-info .right {
 }
 
 .overlapping-text-image .module-padding, .overlapping-text-image.module-padding {
-  padding-top: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
-  padding-bottom: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
+  padding-top: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
+  padding-bottom: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
 }
 .overlapping-text-image .module-padding.grid-x, .overlapping-text-image.module-padding.grid-x {
   min-height: clamp(21.875rem, 17.857rem + 17.857vw, 31.25rem);
@@ -8317,12 +8337,12 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 }
 .orange-text-with-flyby-animation .large-text p {
   line-height: 0.98;
-  font-size: clamp(2.25rem, 1.875rem + 1.667vw, 3.125rem);
+  font-size: clamp(1.969rem, 1.607rem + 1.607vw, 2.813rem);
   margin-bottom: 0.68em;
 }
 .orange-text-with-flyby-animation .medium-text p {
   line-height: 1.4;
-  font-size: clamp(1.531rem, 1.25rem + 1.25vw, 2.188rem);
+  font-size: clamp(1.378rem, 1.125rem + 1.125vw, 1.969rem);
 }
 .orange-text-with-flyby-animation .medium-text p:not(:last-child):only-child {
   margin-bottom: 0.85em;

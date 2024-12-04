@@ -31,35 +31,37 @@ $image = get_sub_field('image') ?? null;
                                 </h2>
                             </div>
                         <?php endif;?>
-                        <?php if( !empty( $heading ) ):?>
-                            <h3 class="<?php if( $layout == 'large-heading' ) { echo 'h1'; } else { echo 'h2'; };?>">
-                                <?=esc_html( $heading );?>
-                            </h3>
-                        <?php endif;?>
-                        <?php if( !empty( $subheading ) && $layout !== 'large-heading' ):?>
-                            <h4 class="h3">
-                                <b><?=esc_html( $subheading );?></b>
-                            </h4>
-                        <?php endif;?>    
-                        <?php if( !empty( $description_text ) && $layout !== 'large-heading' && $layout !== 'heading-subheading' ):?>
-                            <div class="description-text">
-                                <?=wp_kses_post( $description_text );?>
-                            </div>
-                        <?php endif;?>
-                        <?php 
-                        $link = $button_link;
-                        if( $link && $layout !== 'large-heading' ): 
-                            $link_url = $link['url'];
-                            $link_title = $link['title'];
-                            $link_target = $link['target'] ? $link['target'] : '_self';
-                            ?>
-                            <div class="btn-wrap">
-                                <a class="button no-margin" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-                                    <span><?php echo esc_html( $link_title ); ?></span>
-                                    <svg width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.9 0v1.527h7.493L0 9.92 1.08 11l8.393-8.393v7.492H11V0H.9Z" fill="#FF8E2E"/></svg>
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                        <div class="fade-in-left">
+                            <?php if( !empty( $heading ) ):?>
+                                <h3 class="<?php if( $layout == 'large-heading' ) { echo 'h1'; } else { echo 'h2'; };?>">
+                                    <?=esc_html( $heading );?>
+                                </h3>
+                            <?php endif;?>
+                            <?php if( !empty( $subheading ) && $layout !== 'large-heading' ):?>
+                                <h4 class="h3">
+                                    <b><?=esc_html( $subheading );?></b>
+                                </h4>
+                            <?php endif;?>    
+                            <?php if( !empty( $description_text ) && $layout !== 'large-heading' && $layout !== 'heading-subheading' ):?>
+                                <div class="description-text">
+                                    <?=wp_kses_post( $description_text );?>
+                                </div>
+                            <?php endif;?>
+                            <?php 
+                            $link = $button_link;
+                            if( $link && $layout !== 'large-heading' ): 
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ? $link['target'] : '_self';
+                                ?>
+                                <div class="btn-wrap">
+                                    <a class="button no-margin" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                        <span><?php echo esc_html( $link_title ); ?></span>
+                                        <svg width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.9 0v1.527h7.493L0 9.92 1.08 11l8.393-8.393v7.492H11V0H.9Z" fill="#FF8E2E"/></svg>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 <?php endif;?>
                 

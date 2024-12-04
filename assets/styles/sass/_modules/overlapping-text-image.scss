@@ -1,8 +1,8 @@
 .overlapping-text-image {
 	.module-padding,
 	&.module-padding {
-		padding-top: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
-		padding-bottom: clamp(5.469rem, 4.464rem + 4.464vw, 7.813rem);
+		padding-top: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
+		padding-bottom: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
 		&.grid-x {
 			min-height: clamp(21.875rem, 17.857rem + 17.857vw, 31.25rem);
 		}

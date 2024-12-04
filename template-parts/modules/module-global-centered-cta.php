@@ -17,7 +17,7 @@ $global_cta_button_link = get_field('global_cta_button_link', 'option') ?? null;
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-middle align-center text-center">
 			<div class="cell small-12 medium-10 tablet-9 large-8 xlarge-7 has-bg">
-				<div class="bg" style="background-image: url('<?=get_template_directory_uri(); ?>/assets/images/cta-fish.svg'); background-size: contain; 	background-position: center;"></div>
+				<div class="bg fade-in-top-center" style="background-image: url('<?=get_template_directory_uri(); ?>/assets/images/cta-fish.svg'); background-size: contain; 	background-position: center;"></div>
 				<div class="position-relative module-spacing">
 					<?php if( !empty( $global_cta_heading ) ):?>
 						<h2>

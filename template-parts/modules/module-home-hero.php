@@ -27,7 +27,7 @@ $intro_text = get_sub_field('intro_text') ?? null;
                         </h1>
                     <?php endif;?>
                     <?php if( !empty( $intro_text ) ):?>
-                        <p class="p30">
+                        <p class="p24">
                             <?=esc_html( $intro_text );?>
                         </p>
                     <?php endif;?>
