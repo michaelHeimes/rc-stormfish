@@ -37,13 +37,13 @@ $rows = get_sub_field('rows') ?? null;
 						<div class="cell small-12 tablet-5">
 							<h2>
 								<?=esc_html( $heading );?>
-								<span class="pipe mobile hide-for-medium"><span></span></span>
+								<span class="pipe mobile hide-for-tablet"><span></span></span>
 							</h2>
 						</div>
 					<?php endif;?>
 					<?php if( !empty( $copy ) ):?>
 						<div class="cell small-12 tablet-7">
-							<div class="pipe desktop show-for-medium"><span></span></div>
+							<div class="pipe desktop show-for-tablet"><span></span></div>
 							<div class="copy-wrap">
 								<?=wp_kses_post($copy);?>
 							</div>

@@ -10,4 +10,18 @@
 	.p30 {
 		max-width: rem-calc(610);
 	}
+	img.img-fill {
+		&.orientation-left {
+			object-position: left;
+		}
+		&.orientation-top {
+			object-position: top;
+		}
+		&.orientation-right {
+			object-position: right;
+		}
+		&.orientation-bottom {
+			object-position: bottom;
+		}
+	}
 }

@@ -974,17 +974,19 @@
 					</svg>
 
 				</div>
-				<?php 
-				if( $menu_logo ) :
-					$size = 'full';
-					$image_id =  $menu_logo['id'] ?? null;?>
-					<a class="logo-link position-relative hide-for-medium" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
-					</a>
-				<?php endif;?>
-
-
-				<?php trailhead_top_nav();?>
+				<div class="menu-wrap-inner">
+					<?php 
+					if( $menu_logo ) :
+						$size = 'full';
+						$image_id =  $menu_logo['id'] ?? null;?>
+						<a class="logo-link position-relative hide-for-medium" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
+						</a>
+					<?php endif;?>
+	
+	
+					<?php trailhead_top_nav();?>
+				</div>
 			</div>
 		</div>
 	</div>

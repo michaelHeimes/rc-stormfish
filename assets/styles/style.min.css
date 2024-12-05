@@ -7534,9 +7534,16 @@ h1.display,
 .h1.display,
 #off-canvas .display.menu-wrap {
   font-family: "Yielding Timber", Helvetica, Roboto, Arial, sans-serif;
-  font-size: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+  font-size: clamp(2.5rem, 0rem + 12.5vw, 5rem);
   line-height: 1;
   color: rgba(255, 255, 255, 0.5);
+}
+@media print, screen and (min-width: 40em) {
+  h1.display,
+  .h1.display,
+  #off-canvas .display.menu-wrap {
+    font-size: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+  }
 }
 
 h2,
@@ -7766,6 +7773,13 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span {
   }
 }
 #off-canvas .menu-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: auto;
   position: relative;
   z-index: 1;
@@ -7785,6 +7799,16 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span {
     padding: 2rem 5rem 1rem;
   }
 }
+#off-canvas .menu-wrap-inner {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 #off-canvas .menu-wrap svg.menu-pixels-bg {
   position: absolute;
   top: 0;
@@ -7795,11 +7819,13 @@ header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle:hover span {
      object-fit: cover;
 }
 #off-canvas .menu-wrap ul#main-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 100%;
-  overflow: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 @media print, screen and (min-width: 40em) {
   #off-canvas .menu-wrap ul#main-nav {
@@ -8042,11 +8068,32 @@ footer#colophon .site-info .right {
 .home-hero .p30 {
   max-width: 38.125rem;
 }
+.home-hero img.img-fill.orientation-left {
+  -o-object-position: left;
+     object-position: left;
+}
+.home-hero img.img-fill.orientation-top {
+  -o-object-position: top;
+     object-position: top;
+}
+.home-hero img.img-fill.orientation-right {
+  -o-object-position: right;
+     object-position: right;
+}
+.home-hero img.img-fill.orientation-bottom {
+  -o-object-position: bottom;
+     object-position: bottom;
+}
 
 .contact-hero .module-padding {
-  min-height: 580px;
   padding-top: clamp(2.844rem, 2.322rem + 2.322vw, 4.063rem);
   padding-bottom: clamp(2.844rem, 2.322rem + 2.322vw, 4.063rem);
+  min-height: 80vh;
+}
+@media print, screen and (min-width: 40em) {
+  .contact-hero .module-padding {
+    min-height: 580px;
+  }
 }
 .contact-hero .eyebrow h1 {
   margin-bottom: 2em;
@@ -8194,6 +8241,11 @@ footer#colophon .site-info .right {
   -webkit-transform: translateX(-30px);
           transform: translateX(-30px);
 }
+@media print, screen and (max-width: 56.24875em) {
+  .heading-left-copy-right-over-fixed-background-image .copy-wrap {
+    padding-top: 2rem;
+  }
+}
 
 .overlapping-text-image .module-padding, .overlapping-text-image.module-padding {
   padding-top: clamp(5.469rem, 4.464rem + 4.465vw, 7.813rem);
@@ -8261,7 +8313,12 @@ body .gform-theme.gform-theme--framework.gform_wrapper .overlapping-text-image .
 .overlapping-text-image .btn-wrap {
   padding-top: 0.66rem;
 }
-@media print, screen and (min-width: 40em) {
+@media print, screen and (max-width: 56.24875em) {
+  .overlapping-text-image .img-wrap {
+    padding-top: 3rem;
+  }
+}
+@media print, screen and (min-width: 56.25em) {
   .overlapping-text-image h3,
   .overlapping-text-image h4 {
     width: 120%;

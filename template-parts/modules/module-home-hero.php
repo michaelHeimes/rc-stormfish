@@ -4,6 +4,7 @@ if(!defined('ABSPATH')) {
 }
 $remove_bottom_border = get_sub_field('remove_bottom_border') ?? null;
 $background_image = get_sub_field('background_image') ?? null;
+$background_image_orientation = get_sub_field('background_image_orientation') ?? null;
 $heading = get_sub_field('heading') ?? null;
 $intro_text = get_sub_field('intro_text') ?? null;
 ?>
@@ -15,7 +16,14 @@ $intro_text = get_sub_field('intro_text') ?? null;
     if( $background_image ) {
         $size = 'full-width-hero';
         $image_id =  $background_image['id'] ?? null;
-        echo wp_get_attachment_image( $image_id, $size, false, array( 'class' => 'img-fill' ) );
+        echo wp_get_attachment_image(
+            $image_id, 
+            $size, 
+            false, 
+            array( 
+                'class' => 'img-fill orientation-' . esc_attr( $background_image_orientation ) 
+            ) 
+        );
     }?>
     <div class="grid-container position-relative module-spacing grid-x align-bottom">
         <div class="grid-x grid-padding-x h-100">

@@ -22,7 +22,7 @@ $image = get_sub_field('image') ?? null;
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
                 <?php if( !empty( $eyebrow_title ) || !empty( $heading ) || !empty( $description_text ) || !empty( $subheading ) || !empty( $button_link ) ):?>
-                    <div class="overlap cell small-12 medium-9 large-6 xlarge-5 position-relative parallax-1">
+                    <div class="overlap cell small-12 medium-11 tablet-8 large-6 xlarge-5 position-relative parallax-1">
                         <?php if( !empty( $eyebrow_title ) ):?>
                             <div class="eyebrow grid-x align-middle">
                                 <h2 class="h4 grid-x text-nowrap align-middle">
@@ -69,7 +69,7 @@ $image = get_sub_field('image') ?? null;
                 if( $image ) :
                     $size = 'overlapping-text-image';
                     $image_id =  $image['id'] ?? null;?>
-                    <div class="img-wrap position-relative cell small-12 medium-10 large-6 xlarge-7 parallax-2">
+                    <div class="img-wrap position-relative cell small-12 medium-10 medium-offset-1 tablet-4 tablet-offset-0 large-6 xlarge-7 parallax-2">
                         <div class="img-wrap-inner">
                         <?=wp_get_attachment_image( $image_id, $size, false, array( 'class' => '' ) );?>
                         </div>

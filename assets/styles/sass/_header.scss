@@ -136,6 +136,8 @@ header.site-header {
 		}	
 	}
 	.menu-wrap {
+		display: flex;
+		flex-direction: column;
 		overflow: auto;
 		position: relative;
 		z-index: 1;
@@ -153,6 +155,12 @@ header.site-header {
 				padding: 2rem 5rem 1rem;
 			}
 		}
+		&-inner {
+			height: 100%;
+				display: flex
+			;
+				flex-direction: column;
+		}
 		svg.menu-pixels-bg {
 			position: absolute;
 			top: 0;
@@ -162,9 +170,8 @@ header.site-header {
 			object-fit: cover;
 		}
 		ul#main-nav {
-			display: flex;
-			min-height: 100%;
-			overflow: auto;
+			flex: 1;
+			flex-direction: column;
 			@include breakpoint(medium) {
 				padding: 3.5rem 0;
 				height: 100%;

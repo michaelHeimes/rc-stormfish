@@ -54,5 +54,8 @@
 	.copy-wrap {
 		opacity: 0;
 		transform: translateX(-30px);
+		@include breakpoint(medium down) {
+			padding-top: 2rem;
+		}
 	}
 }

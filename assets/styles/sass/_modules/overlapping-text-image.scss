@@ -29,8 +29,11 @@
 		padding-top: 0.66rem;
 	}
 	.img-wrap {
+		@include breakpoint(medium down) {
+			padding-top: 3rem;
+		}
 	}
-	@include breakpoint(medium) {
+	@include breakpoint(tablet) {
 		h3,
 		h4 {
 			width: 120%;

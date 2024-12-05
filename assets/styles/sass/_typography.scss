@@ -19,9 +19,12 @@ h1,
 	font-size: clamp(2.625rem, 2.143rem + 2.143vw, 3.75rem);
 	&.display {
 		font-family: $font-display;
-		font-size: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+		font-size: clamp(2.5rem, 0rem + 12.5vw, 5rem);
 		line-height: 1;
 		color: rgba($white, .5);
+		@include breakpoint(medium) {
+			font-size: clamp(4.375rem, 3.571rem + 3.571vw, 6.25rem);
+		}
 	}
 }
 

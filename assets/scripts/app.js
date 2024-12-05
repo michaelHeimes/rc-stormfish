@@ -742,14 +742,25 @@ const paths = document.querySelectorAll('.menu-pixels-bg path');
                 
                 const p1Offset = topPadding * 1;
                 const p2Offset = bottomPadding  * .8;
+                
+                let parrallax1Start;
+                let parallax1Direction;
+                            
+                if( window.innerWidth < 900 ) {
+                    parrallax1Start = p1Offset;
+                    parallax1Direction = -p1Offset;
+                } else {
+                    parrallax1Start = -p1Offset;
+                    parallax1Direction = p1Offset;
+                }
                             
                 parallax1s.forEach((parallax1) => {
                     if (parallax1) {
                         
-                        gsap.set(parallax1, {y: -p1Offset});
+                        gsap.set(parallax1, {y:parrallax1Start});
                         
                         gsap.to(parallax1, {
-                            y: p1Offset,
+                            y: parallax1Direction,
                             ease: 'none',
                             scrollTrigger: {
                                 trigger: section,
